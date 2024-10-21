@@ -37,7 +37,8 @@ function create_block_talkwave_block_init() {
 	$custom_blocks = array (
 		'podcasts',
 		'episodes',
-		'tags'
+		'tags',
+		'episode-image'
 	);
 	
 	foreach ( $custom_blocks as $block ) {
