@@ -1,0 +1,83 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-podcasts {
+}
+
+.podcast-series-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 20px; /* Space between grid items */
+    margin: 0 auto;
+    max-width: 1200px; /* Set a max-width for the grid container */
+}
+
+.podcast-series-item {
+    // background-color: #fff;
+    // border: 1px solid #ddd;
+    // border-radius: 5px;
+    // padding: 15px;
+}
+
+.podcast-series-item .series-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.podcast-series-item .series-description {
+    font-size: 0.9rem;
+    // color: #666;
+}
+
+.podcast-series-item .image-wrapper {
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.podcast-series-item .image-wrapper:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.podcast-series-item .series-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+}
+
+.podcast-series-item .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.podcast-series-item .image-wrapper:hover .series-image {
+    opacity: 0.8;
+}
+
+.podcast-series-item .image-wrapper:hover .play-icon {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .podcast-series-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .podcast-series-list {
+        grid-template-columns: repeat(1, 1fr); /* 1 column on small screens */
+    }
+}
