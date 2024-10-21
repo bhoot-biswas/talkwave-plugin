@@ -79,6 +79,49 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+/* Container for the figure */
+figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  /* Ensures overlay does not spill outside the figure */
+}
+
+/* Play icon overlay styles */
+.play-icon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  /* Size of the play icon */
+  color: white;
+  /* Color of the play icon */
+  opacity: 0;
+  /* Initially hidden */
+  transition: opacity 0.3s ease;
+  /* Smooth transition */
+}
+
+/* Show overlay on hover */
+figure:hover .play-icon-overlay {
+  opacity: 1;
+  /* Make overlay visible on hover */
+}
+
+/* Image styles */
+.podcast-episode-thumbnail {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  /* Image zoom effect on hover */
+}
+
+/* Optional: Zoom image on hover */
+figure:hover .podcast-episode-thumbnail {
+  transform: scale(1.05);
+  /* Zoom effect */
+}
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/tags/style.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************/
