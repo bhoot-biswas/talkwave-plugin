@@ -13,70 +13,28 @@
  * @package CreateBlock
  */
 
+ // Declare the namespace
+namespace Talkwave;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Function to limit description to a maximum of 20 words
-function truncate_description( $text, $limit = 20 ) {
-	$words = explode( ' ', strip_tags( $text ) ); // Remove HTML tags and split into words
-	if ( count( $words ) > $limit ) {
-		$text = implode( ' ', array_slice( $words, 0, $limit ) ) . '...'; // Limit to 20 words and add ellipsis
-	}
-	return $text;
+// Define a constant for the plugin file
+define( 'TALKWAVE_PLUGIN_FILE', __FILE__ );
+
+// Include the plugin class file
+require_once plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'includes/class-talkwave.php';
+
+// Function to initialize Talkwave and return the singleton instance
+function talkwave() {
+	// Get the singleton instance of Talkwave
+	$instance = Talkwave::get_instance();
+
+	// Return the singleton instance
+	return $instance;
 }
 
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-function create_block_talkwave_block_init() {
-	$custom_blocks = array (
-		'podcasts',
-		'episodes',
-		'tags',
-		'episode-image'
-	);
-	
-	foreach ( $custom_blocks as $block ) {
-		register_block_type( __DIR__ . '/build/blocks/' . $block );
-	}
-}
-add_action( 'init', 'create_block_talkwave_block_init' );
+// Initialize the plugin
+talkwave();
 
-function multiblock_enqueue_block_assets() {
-	wp_enqueue_script(
-		'talkwave-editor-js',
-		plugin_dir_url( __FILE__ ) . 'build/block-editor.js',
-		array('wp-blocks', 'wp-components', 'wp-data', 'wp-dom-ready', 'wp-edit-post', 'wp-element', 'wp-i18n', 'wp-plugins'),
-		null,
-		false
-	);
-	
-	wp_enqueue_style(
-		'talkwave-editor-css',
-		plugin_dir_url( __FILE__ ) . 'build/block-editor.css',
-		array(),
-		null
-	);
-}
-add_action( 'enqueue_block_editor_assets', 'multiblock_enqueue_block_assets' );
-
-function multiblock_enqueue_frontend_assets() {
-	wp_enqueue_style(
-		'talkwave-frontend-css',
-		plugin_dir_url( __FILE__ ) . 'build/style-block-editor.css',
-	);
-
-	wp_enqueue_script(
-		'talkwave-frontend-js',
-		plugin_dir_url( __FILE__ ) . 'build/block-frontend.js',
-		array(),
-		null,
-		true
-	);
-}
-add_action( 'wp_enqueue_scripts', 'multiblock_enqueue_frontend_assets' );
