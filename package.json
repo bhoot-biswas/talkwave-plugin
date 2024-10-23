@@ -18,5 +18,8 @@
 		"@wordpress/blocks": "^13.10.0",
 		"@wordpress/dom-ready": "^4.10.0",
 		"@wordpress/scripts": "^30.3.0"
+	},
+	"dependencies": {
+		"@wordpress/interactivity": "^6.10.0"
 	}
 }
