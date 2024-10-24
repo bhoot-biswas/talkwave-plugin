@@ -43,6 +43,7 @@
 				<div
 					class="podcast-series-item"
 					data-wp-init="callbacks.setPlaylist"
+					data-wp-class--is-loading="state.playlistLoading"
 					data-wp-class--is-playing="state.playlistPlaying"
 					<?php
 					echo wp_interactivity_data_wp_context(
@@ -56,11 +57,19 @@
 					<!-- Image link with play icon -->
 					<div class="image-wrapper">
 						<img class="series-image" src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $title ); ?>">
-						<button class="talkwave-btn talkwave-btn--play" data-wp-on--click="actions.handlePlaylist">
-							<?php echo Talkwave\Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
-							<?php echo Talkwave\Icon_Display::get_icon( 'pause', array( 'aria-hidden' => 'true' ) ); ?>
-							<span class="screen-reader-text">Play/Pause Podcast</span>
-						</button>
+						
+						<div class="image-overlay">
+							<button class="talkwave-button talkwave-button--play" data-wp-on--click="actions.handlePlaylist">
+								<?php echo Talkwave\Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
+								<span class="screen-reader-text">Play Podcast</span>
+							</button>
+							<button class="talkwave-button talkwave-button--pause" data-wp-on--click="actions.handlePlaylist">
+								<?php echo Talkwave\Icon_Display::get_icon( 'pause', array( 'aria-hidden' => 'true' ) ); ?>
+								<span class="screen-reader-text">Pause Podcast</span>
+							</button>
+
+							<div class="loader"></div>
+						</div>
 					</div>
 
 					<!-- Title link -->

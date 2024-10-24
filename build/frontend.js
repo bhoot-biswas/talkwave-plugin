@@ -3434,6 +3434,12 @@ const {
       const currentPlaylistId = state.currentPlaylistId || Object.keys(state.playlists)[0];
       return state.playlists[currentPlaylistId][state.index].album_art["src"];
     },
+    playlistLoading: () => {
+      const {
+        playlist_id
+      } = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
+      return state.currentPlaylistId === playlist_id && state.loading;
+    },
     playlistPlaying: () => {
       const {
         playlist_id

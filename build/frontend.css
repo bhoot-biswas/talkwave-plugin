@@ -159,20 +159,25 @@ img {
   color: #ccc;
 }
 
-.talkwave-player.is-loading .talkwave-button--play {
+.talkwave-player.is-loading .talkwave-button--play,
+.podcast-series-item.is-loading .talkwave-button--play {
   display: none;
 }
-.talkwave-player.is-loading .loader {
+.talkwave-player.is-loading .loader,
+.podcast-series-item.is-loading .loader {
   display: block;
 }
 
-.talkwave-player.is-playing .talkwave-button {
+.talkwave-player.is-playing .talkwave-button,
+.podcast-series-item.is-playing .talkwave-button {
   pointer-events: all;
 }
-.talkwave-player.is-playing .talkwave-button--play {
+.talkwave-player.is-playing .talkwave-button--play,
+.podcast-series-item.is-playing .talkwave-button--play {
   display: none;
 }
-.talkwave-player.is-playing .talkwave-button--pause {
+.talkwave-player.is-playing .talkwave-button--pause,
+.podcast-series-item.is-playing .talkwave-button--pause {
   display: block;
 }
 
