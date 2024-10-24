@@ -2,9 +2,8 @@
 // Declare namespace
 namespace Talkwave;
 
-// Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit; // Exit if accessed directly.
 }
 
 final class Talkwave {
@@ -36,71 +35,119 @@ final class Talkwave {
 
 	public function includes() {
 		require_once plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'includes/functions.php';
+		require_once plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'includes/query-functions.php';
+		require_once plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'includes/class-icon-display.php';
 	}
 
 	// Initialize the plugin.
 	private function init() {
 		// Plugin initialization code here.
-        add_action( 'init', [$this, 'register_blocks'] );
-        add_action( 'enqueue_block_editor_assets', [$this, 'enqueue_block_editor_assets'] );
-		add_action( 'wp_enqueue_scripts', [$this, 'enqueue_scripts'] );
+		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_action( 'wp_footer', array( $this, 'audio_player_html' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
-    /**
-     * Registers the block using the metadata loaded from the `block.json` file.
-     * Behind the scenes, it registers also all assets so they can be enqueued
-     * through the block editor in the corresponding context.
-     *
-     * @see https://developer.wordpress.org/reference/functions/register_block_type/
-     */
-    public function register_blocks() {
-        $custom_blocks = array (
-            'podcasts',
-            'episodes',
-            'tags',
-            'episode-image'
-        );
-        
-        foreach ( $custom_blocks as $block ) {
-            register_block_type( plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'build/blocks/' . $block );
-        }
+	/**
+	 * Registers the block using the metadata loaded from the `block.json` file.
+	 * Behind the scenes, it registers also all assets so they can be enqueued
+	 * through the block editor in the corresponding context.
+	 *
+	 * @see https://developer.wordpress.org/reference/functions/register_block_type/
+	 */
+	public function register_blocks() {
+		$custom_blocks = array(
+			'podcasts',
+			'episodes',
+			'tags',
+			'episode-image',
+		);
+
+		foreach ( $custom_blocks as $block ) {
+			register_block_type( plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'build/blocks/' . $block );
+		}
+	}
+
+    public function audio_player_html() {
+        ?>
+        <div
+            data-wp-interactive="talkwave"
+            class="talkwave-player"
+        >
+            <div class="talkwave-player__wrap">
+				<div class="talkwave-player__current">
+					<div class="talkwave-player__artwork talkwave-player__artwork--218">
+						<img decoding="async" data-wp-bind--src="state.episodeImage" alt="" title="">
+					</div>
+					<div class="talkwave-player__details">
+						<div class="talkwave-player__podcast-title" data-wp-text="state.podcastTitle"></div>
+						<div class="talkwave-player__episode-title" data-wp-text="state.episodeTitle"></div>
+					</div>
+				</div>
+				
+				<div class="talkwave-player__controls">
+					<div class="talkwave-player__playback-controls">
+						<button data-skip="-10" class="talkwave-player__btn talkwave-player__btn--rewind" title="Rewind 10 seconds" data-wp-on--click="actions.rewind">
+							<?php echo Icon_Display::get_icon( 'arrow-counterclockwise', array( 'aria-hidden' => 'true' ) ); ?>
+							<span class="screen-reader-text">Rewind 10 Seconds</span>
+						</button>
+
+						<button title="Play" class="talkwave-player__btn talkwave-player__btn--play" data-wp-class--hide="state.hidePlayButton" data-wp-on--click="actions.play">
+							<?php echo Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
+							<span class="screen-reader-text">Play Episode</span>
+						</button>
+						<button title="Pause" class="talkwave-player__btn talkwave-player__btn--pause" data-wp-class--hide="state.hidePauseButton" data-wp-on--click="actions.pause">
+							<?php echo Icon_Display::get_icon( 'pause', array( 'aria-hidden' => 'true' ) ); ?>
+							<span class="screen-reader-text">Pause Episode</span>
+						</button>
+
+						<div class="lds-ripple" data-wp-class--hide="state.hideRipple">
+							<div></div>
+							<div></div>
+						</div>
+
+						<button data-skip="30" class="talkwave-player__btn talkwave-player__btn--fastforward" title="Fast Forward 30 seconds" data-wp-on--click="actions.fastForward">
+							<?php echo Icon_Display::get_icon( 'arrow-clockwise', array( 'aria-hidden' => 'true' ) ); ?>
+							<span class="screen-reader-text">Fast Forward 30 seconds</span>
+						</button>
+					</div>
+
+					<div class="talkwave-player__progress">
+						<time class="talkwave-player__timer" data-wp-text="state.timerHTML"></time>
+						<div class="talkwave-player__progress-bar" role="progressbar" title="Seek" data-wp-on--click="actions.scrub">
+							<span class="talkwave-player__progress-filled" style="flex-basis: 13.8504%;"></span>
+						</div>
+						<time class="talkwave-player__duration" data-wp-text="state.durationHTML"></time>
+					</div>
+				</div>
+
+				<div class="talkwave-player__options">
+					<button class="talkwave-player__btn talkwave-player__btn--speed" title="Playback Speed" data-wp-text="state.getRate" data-wp-on--click="actions.handleRate"></button>
+					<button class="talkwave-player__btn talkwave-player__btn--volume" title="Mute/Unmute" data-wp-class--muted="state.muted" data-wp-on--click="actions.toggleMute">
+						<?php echo Icon_Display::get_icon( 'volume-mute', array( 'aria-hidden' => 'true' ) ); ?>
+						<?php echo Icon_Display::get_icon( 'volume-up', array( 'aria-hidden' => 'true' ) ); ?>
+						<span class="screen-reader-text">Mute/Unmute Episode</span>
+					</button>
+				</div>
+			</div>
+        </div>
+        <?php
     }
 
-    public function enqueue_block_editor_assets() {
-        wp_enqueue_script(
-            'talkwave-editor-js',
-            plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/block-editor.js',
-            array('wp-blocks', 'wp-components', 'wp-data', 'wp-dom-ready', 'wp-edit-post', 'wp-element', 'wp-i18n', 'wp-plugins'),
-            null,
-            false
-        );
-        
-        wp_enqueue_style(
-            'talkwave-editor-css',
-            plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/block-editor.css',
-            array(),
-            null
-        );
-    }
+	public function enqueue_scripts() {
+		wp_enqueue_style(
+			'talkwave-frontend',
+			plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/frontend.css',
+		);
 
-    public function enqueue_scripts() {
-        wp_enqueue_style(
-            'talkwave-frontend-css',
-            plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/style-block-editor.css',
-        );
-    
-        wp_register_script(
-            'howler',
-            'https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js',
-        );
-    
-        wp_enqueue_script_module(
-            'talkwave-frontend-js',
-            plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'src/block-frontend.js',
-            array(array(
-                'id' => '@wordpress/interactivity',
-                'import' => 'dynamic' // Optional.
-            ), 'howler'),
-        );
-    }
+		wp_enqueue_script_module(
+			'talkwave-frontend',
+			plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/frontend.js',
+			array(
+				array(
+					'id'     => '@wordpress/interactivity',
+					'import' => 'dynamic',
+				)
+			),
+		);
+	}
 }
