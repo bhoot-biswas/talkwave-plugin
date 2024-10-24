@@ -1,14 +1,1 @@
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/episodes/style.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
-.wp-block-create-block-episodes {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
-}
+.wp-block-talkwave-episodes .episode-grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}.wp-block-talkwave-episodes .episode-title{font-size:1em}.wp-block-talkwave-episodes .image-wrapper{position:relative;transition:box-shadow .3s ease}.wp-block-talkwave-episodes .image-wrapper img{border-radius:4px;height:auto;transition:opacity .3s ease;width:100%}.wp-block-talkwave-episodes .image-wrapper .image-overlay{align-items:center;display:flex;inset:0;justify-content:center;position:absolute}.wp-block-talkwave-episodes .image-wrapper .loader,.wp-block-talkwave-episodes .image-wrapper .talkwave-button--pause,.wp-block-talkwave-episodes .image-wrapper .talkwave-button--play{height:56px;opacity:0;transition:opacity .3s ease;width:56px}.wp-block-talkwave-episodes .image-wrapper:hover{box-shadow:0 4px 10px rgba(0,0,0,.1)}.wp-block-talkwave-episodes .image-wrapper:hover .series-image{opacity:.8}.wp-block-talkwave-episodes .image-wrapper:hover .talkwave-button--pause,.wp-block-talkwave-episodes .image-wrapper:hover .talkwave-button--play{opacity:1}

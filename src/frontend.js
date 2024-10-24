@@ -37,6 +37,30 @@ const { state, actions } = store("talkwave", {
 		get hideRipple() {
 			return !state.loading;
 		},
+		get isPlaying() {
+			const { index, playlist_id } = getContext();
+			return (
+				state.currentPlaylistId === playlist_id &&
+				state.index === index &&
+				state.playing
+			);
+		},
+		get isLoading() {
+			const { index, playlist_id } = getContext();
+			return (
+				state.currentPlaylistId === playlist_id &&
+				state.index === index &&
+				state.loading
+			);
+		},
+		get playlistLoading() {
+			const { playlist_id } = getContext();
+			return state.currentPlaylistId === playlist_id && state.loading;
+		},
+		get playlistPlaying() {
+			const { playlist_id } = getContext();
+			return state.currentPlaylistId === playlist_id && state.playing;
+		},
 		get durationHTML() {
 			return formatTime(Math.round(state.duration));
 		},
@@ -64,14 +88,6 @@ const { state, actions } = store("talkwave", {
 				state.currentPlaylistId || Object.keys(state.playlists)[0];
 			return state.playlists[currentPlaylistId][state.index].album_art["src"];
 		},
-		playlistLoading: () => {
-			const { playlist_id } = getContext();
-			return state.currentPlaylistId === playlist_id && state.loading;
-		},
-		playlistPlaying: () => {
-			const { playlist_id } = getContext();
-			return state.currentPlaylistId === playlist_id && state.playing;
-		}
 	},
 	callbacks: {
 		// setPlaylist updates the state with a new playlist or replaces an existing one
@@ -94,10 +110,12 @@ const { state, actions } = store("talkwave", {
 			// Check if context has a playlistId and use it if provided
 			if (context && context.playlist_id) {
 				playlistId = context.playlist_id;
+				index = context.index || 0;
 			}
 
 			if (!playlistId && state.currentPlaylistId) {
 				playlistId = state.currentPlaylistId;
+				index = state.index;
 			}
 
 			// If playlistId is not provided, default to the first playlist ID
@@ -112,12 +130,10 @@ const { state, actions } = store("talkwave", {
 				return;
 			}
 
-			// Ensure index is within bounds
-			index = index < state.playlists[playlistId].length ? index : 0;
-
 			// Load playlist and track data
 			let playlist = state.playlists[playlistId];
-			let track = playlist[index];
+			let episodeIndex = index < state.playlists[playlistId].length ? index : 0;
+			let track = playlist[episodeIndex];
 			let sound;
 
 			if (track.howl) {
@@ -152,11 +168,18 @@ const { state, actions } = store("talkwave", {
 				});
 			}
 
+			// Pause any existing track
+			if (state.playing) {
+				let currentSound =
+					state.playlists[state.currentPlaylistId][state.index].howl;
+				if (currentSound) currentSound.stop();
+			}
+
 			sound.play();
 			state.loading = sound.state() !== "loaded";
 			state.playing = sound.state() === "loaded";
 			state.currentPlaylistId = playlistId; // Track current playlist ID
-			state.index = index;
+			state.index = episodeIndex;
 		},
 		handlePlaylist: () => {
 			const { playlist_id } = getContext();
@@ -194,7 +217,7 @@ const { state, actions } = store("talkwave", {
 		skipTo: (index, playlistId) => {
 			let sound = state.playlists[playlistId][state.index].howl;
 			if (sound) sound.stop();
-			actions.play(index, playlistId);
+			// actions.play(index, playlistId);
 		},
 		volume: (val) => {
 			Howler.volume(val);
