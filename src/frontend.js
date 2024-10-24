@@ -75,8 +75,6 @@ const { state, actions } = store("talkwave", {
 				return;
 			}
 
-			console.log("Setting playlist", playlist_id, playlist);
-
 			// Add or update the playlist in the state
 			state.playlists[playlist_id] = playlist;
 		},
@@ -151,6 +149,23 @@ const { state, actions } = store("talkwave", {
 			state.playing = sound.state() === "loaded";
 			state.currentPlaylistId = playlistId; // Track current playlist ID
 			state.index = index;
+		},
+		handlePlaylist: () => {
+			const { playlist_id } = getContext();
+
+			if (state.currentPlaylistId === playlist_id) {
+				if (state.playing) {
+					actions.pause();
+				} else {
+					actions.play(state.index, playlist_id);
+				}
+			} else {
+				if (state.playing) {
+					actions.pause();
+				}
+
+				actions.play(0, playlist_id);
+			}
 		},
 		pause: () => {
 			let sound = state.playlists[state.currentPlaylistId][state.index].howl;

@@ -3,7 +3,10 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div 
+	<?php echo get_block_wrapper_attributes(); ?>
+	data-wp-interactive="talkwave"
+>
 	<?php
 	// Get all terms from the 'series' taxonomy
 	$series_terms = get_terms(
@@ -16,7 +19,7 @@
 	// Check if terms exist
 	if ( ! empty( $series_terms ) && ! is_wp_error( $series_terms ) ) :
 		?>
-		<div class="podcast-series-list" data-wp-interactive="talkwave">
+		<div class="podcast-series-list">
 			<?php
 			foreach ( $series_terms as $term ) :
 				// Get term meta values
@@ -52,7 +55,7 @@
 					<!-- Image link with play icon -->
 					<div class="image-wrapper">
 						<img class="series-image" src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $title ); ?>">
-						<div class="play-icon" data-wp-on--click="actions.play">
+						<div class="play-icon" data-wp-on--click="actions.handlePlaylist">
 							<span>▶️</span> <!-- You can replace this with a play icon using an icon library or SVG -->
 						</div>
 					</div>
