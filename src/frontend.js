@@ -64,6 +64,10 @@ const { state, actions } = store("talkwave", {
 				state.currentPlaylistId || Object.keys(state.playlists)[0];
 			return state.playlists[currentPlaylistId][state.index].album_art["src"];
 		},
+		playlistPlaying: () => {
+			const { playlist_id } = getContext();
+			return state.currentPlaylistId === playlist_id && state.playing;
+		}
 	},
 	callbacks: {
 		// setPlaylist updates the state with a new playlist or replaces an existing one
