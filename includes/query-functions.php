@@ -8,7 +8,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 function get_playlist_items( $atts = array(), $page = 1 ) {
 	$episode_repository = ssp_episode_controller()->episode_repository;
 
-	$podcast  = get_term_by( 'slug', $atts['series'], 'series' );
+	// If 'series' is provided, get the term by the slug outside the loop
+	if ( isset( $atts['series'] ) && ! empty( $atts['series'] ) ) {
+		$podcast       = get_term_by( 'slug', $atts['series'], 'series' );
+		$podcast_title = $podcast ? $podcast->name : '';
+	} else {
+		$podcast_title = ''; // Initialize as empty in case we need to find it in the loop
+	}
+
 	$episodes = $episode_repository->get_episodes( array_merge( $atts, compact( 'page' ) ) );
 	$items    = array();
 
@@ -24,9 +31,20 @@ function get_playlist_items( $atts = array(), $page = 1 ) {
 	);
 
 	foreach ( $episodes as $episode ) {
-		$player_data                  = $episode_repository->get_player_data( $episode->ID );
-		$player_data['podcast_title'] = $podcast->name;
-		$items[]                      = array_intersect_key( $player_data, array_flip( $allowed_keys ) );
+		$player_data = $episode_repository->get_player_data( $episode->ID );
+
+		// If 'series' is not provided, fetch the first taxonomy term for this episode
+		if ( empty( $atts['series'] ) ) {
+			$terms = get_the_terms( $episode->ID, 'series' );
+			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+				$podcast_title = $terms[0]->name; // Use the first available term
+			}
+		}
+
+		// Set the podcast title in player data
+		$player_data['podcast_title'] = $podcast_title;
+
+		$items[] = array_intersect_key( $player_data, array_flip( $allowed_keys ) );
 	}
 
 	return $items;
