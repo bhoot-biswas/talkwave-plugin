@@ -70,8 +70,11 @@ final class Talkwave {
     public function audio_player_html() {
         ?>
         <div
+			class="talkwave-player"
             data-wp-interactive="talkwave"
-            class="talkwave-player"
+			data-wp-class--is-loading="state.loading"
+			data-wp-class--is-playing="state.playing"
+			data-wp-class--is-muted="state.muted"
         >
             <div class="talkwave-player__wrap">
 				<div class="talkwave-player__current">
@@ -86,26 +89,23 @@ final class Talkwave {
 				
 				<div class="talkwave-player__controls">
 					<div class="talkwave-player__playback-controls">
-						<button data-skip="-10" class="talkwave-player__btn talkwave-player__btn--rewind" title="Rewind 10 seconds" data-wp-on--click="actions.rewind">
+						<button data-skip="-10" class="talkwave-button talkwave-button--rewind" title="Rewind 10 seconds" data-wp-on--click="actions.rewind">
 							<?php echo Icon_Display::get_icon( 'arrow-counterclockwise', array( 'aria-hidden' => 'true' ) ); ?>
 							<span class="screen-reader-text">Rewind 10 Seconds</span>
 						</button>
 
-						<button title="Play" class="talkwave-player__btn talkwave-player__btn--play" data-wp-class--hide="state.hidePlayButton" data-wp-on--click="actions.play">
+						<button title="Play" class="talkwave-button talkwave-button--play" data-wp-on--click="actions.play">
 							<?php echo Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
 							<span class="screen-reader-text">Play Episode</span>
 						</button>
-						<button title="Pause" class="talkwave-player__btn talkwave-player__btn--pause" data-wp-class--hide="state.hidePauseButton" data-wp-on--click="actions.pause">
+						<button title="Pause" class="talkwave-button talkwave-button--pause" data-wp-on--click="actions.pause">
 							<?php echo Icon_Display::get_icon( 'pause', array( 'aria-hidden' => 'true' ) ); ?>
 							<span class="screen-reader-text">Pause Episode</span>
 						</button>
 
-						<div class="lds-ripple" data-wp-class--hide="state.hideRipple">
-							<div></div>
-							<div></div>
-						</div>
+						<div class="loader"></div>
 
-						<button data-skip="30" class="talkwave-player__btn talkwave-player__btn--fastforward" title="Fast Forward 30 seconds" data-wp-on--click="actions.fastForward">
+						<button data-skip="30" class="talkwave-button talkwave-button--fastforward" title="Fast Forward 30 seconds" data-wp-on--click="actions.fastForward">
 							<?php echo Icon_Display::get_icon( 'arrow-clockwise', array( 'aria-hidden' => 'true' ) ); ?>
 							<span class="screen-reader-text">Fast Forward 30 seconds</span>
 						</button>
@@ -121,11 +121,15 @@ final class Talkwave {
 				</div>
 
 				<div class="talkwave-player__options">
-					<button class="talkwave-player__btn talkwave-player__btn--speed" title="Playback Speed" data-wp-text="state.getRate" data-wp-on--click="actions.handleRate"></button>
-					<button class="talkwave-player__btn talkwave-player__btn--volume" title="Mute/Unmute" data-wp-class--muted="state.muted" data-wp-on--click="actions.toggleMute">
+					<button class="talkwave-button talkwave-button--speed" title="Playback Speed" data-wp-text="state.getRate" data-wp-on--click="actions.handleRate"></button>
+					<button class="talkwave-button talkwave-button--mute" title="Mute" data-wp-on--click="actions.toggleMute">
 						<?php echo Icon_Display::get_icon( 'volume-mute', array( 'aria-hidden' => 'true' ) ); ?>
+						<span class="screen-reader-text">Mute Episode</span>
+					</button>
+
+					<button class="talkwave-button talkwave-button--unmute" title="Unmute" data-wp-on--click="actions.toggleMute">
 						<?php echo Icon_Display::get_icon( 'volume-up', array( 'aria-hidden' => 'true' ) ); ?>
-						<span class="screen-reader-text">Mute/Unmute Episode</span>
+						<span class="screen-reader-text">Unmute Episode</span>
 					</button>
 				</div>
 			</div>
