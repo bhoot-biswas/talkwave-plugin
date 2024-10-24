@@ -43,6 +43,7 @@
 				<div
 					class="podcast-series-item"
 					data-wp-init="callbacks.setPlaylist"
+					data-wp-class--is-playing="state.playlistPlaying"
 					<?php
 					echo wp_interactivity_data_wp_context(
 						array(
@@ -55,9 +56,11 @@
 					<!-- Image link with play icon -->
 					<div class="image-wrapper">
 						<img class="series-image" src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $title ); ?>">
-						<div class="play-icon" data-wp-on--click="actions.handlePlaylist">
-							<span>▶️</span> <!-- You can replace this with a play icon using an icon library or SVG -->
-						</div>
+						<button class="talkwave-btn talkwave-btn--play" data-wp-on--click="actions.handlePlaylist">
+							<?php echo Talkwave\Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
+							<?php echo Talkwave\Icon_Display::get_icon( 'pause', array( 'aria-hidden' => 'true' ) ); ?>
+							<span class="screen-reader-text">Play/Pause Podcast</span>
+						</button>
 					</div>
 
 					<!-- Title link -->
