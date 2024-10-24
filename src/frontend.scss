@@ -199,8 +199,8 @@ img {
 }
 
 .talkwave-player.is-loading,
-.podcast-series-item.is-loading,
-.episode-item.is-loading {
+.wp-block-talkwave-podcasts .podcast-series-item.is-loading .image-wrapper,
+.wp-block-talkwave-episodes .episode-item.is-loading .image-wrapper {
     .talkwave-button {
         &--play {
             display: none;
@@ -213,8 +213,8 @@ img {
 }
 
 .talkwave-player.is-playing,
-.podcast-series-item.is-playing,
-.episode-item.is-playing {
+.wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper,
+.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper {
     .talkwave-button {
         pointer-events: all;
 
