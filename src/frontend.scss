@@ -199,7 +199,8 @@ img {
 }
 
 .talkwave-player.is-loading,
-.podcast-series-item.is-loading {
+.podcast-series-item.is-loading,
+.episode-item.is-loading {
     .talkwave-button {
         &--play {
             display: none;
@@ -212,7 +213,8 @@ img {
 }
 
 .talkwave-player.is-playing,
-.podcast-series-item.is-playing  {
+.podcast-series-item.is-playing,
+.episode-item.is-playing {
     .talkwave-button {
         pointer-events: all;
 
@@ -222,6 +224,7 @@ img {
 
         &--pause {
             display: block;
+            opacity: 1;
         }
     }
 }
