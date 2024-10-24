@@ -2,6 +2,113 @@ img {
     max-width: 100%;
 }
 
+.talkwave-button {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    background-color: transparent;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+    }
+
+    &.hide {
+        display: none;
+    }
+
+    &--pause,
+    &--mute {
+        display: none;
+    }
+
+
+    &--play,
+    &--pause {
+        background-color: #fff;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+        svg {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            fill: #000;
+        }
+
+        &:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &--rewind,
+    &--fastforward,
+    &--mute,
+    &--unmute {
+        &:hover {
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &--rewind,
+    &--fastforward,
+    &--mute,
+    &--unmute,
+    &--speed {
+        pointer-events: none;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &--speed {
+        font-size: 12px;
+        border-radius: 4px;
+        background: 0 0;
+        padding: 1px 4px;
+        width: 33px;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #fff;
+    }
+}
+
+
+.loader {
+    width: 40px;
+    height: 40px;
+    background: #FFF;
+    display: none;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: animloader 1s ease-in infinite;
+}
+
+@keyframes animloader {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
 .talkwave-player {
     position: fixed;
     bottom: 0;
@@ -13,231 +120,118 @@ img {
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
     background-color: #000000;
     color: #fff;
-}
 
-.talkwave-player__wrap {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%; */
-    display: grid;
-    grid-template-columns: 480px 1fr 480px;
-}
-
-.talkwave-player .talkwave-player__current {
-    display: flex;
-    align-items: center;
-}
-
-.talkwave-player .talkwave-player__artwork {
-    flex-shrink: 0;
-}
-
-.talkwave-player .talkwave-player__artwork img {
-    display: block;
-    max-width: 64px;
-    border-radius: 4px;
-}
-
-.talkwave-player .talkwave-player__details {
-    flex-grow: 1;
-    margin-left: 16px;
-}
-
-.talkwave-player__podcast-title {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.talkwave-player__episode-title {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.talkwave-player .talkwave-player__controls {}
-
-.talkwave-player .talkwave-player__playback-controls,
-.talkwave-player .talkwave-player__progress,
-.talkwave-player .talkwave-player__options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-}
-
-.talkwave-player .talkwave-player__options {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-/* Progress bar container */
-.talkwave-player__progress-bar {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-    cursor: pointer;
-    margin: 10px 0;
-}
-
-/* Filled progress indicating the current playback position */
-.talkwave-player__progress-filled {
-    background-color: #007bff;
-    height: 100%;
-    width: 0;
-    transition: width 0.3s ease;
-    border-radius: 4px;
-}
-
-.talkwave-player__timer,
-.talkwave-player__duration {
-    flex-shrink: 0;
-    font-size: 14px;
-    color: #ccc;
-}
-
-.talkwave-player__btn {
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.talkwave-player__btn.hide {
-    display: none;
-}
-
-.talkwave-player__btn--play,
-.talkwave-player__btn--pause {
-    background-color: #fff;
-    color: #000;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.talkwave-player__btn--play:hover {
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.talkwave-player__btn--play svg,
-.talkwave-player__btn--pause svg {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    fill: #000;
-}
-
-.talkwave-player__btn--rewind,
-.talkwave-player__btn--fastforward,
-.talkwave-player__btn--volume {
-    background-color: transparent;
-}
-
-.talkwave-player__btn--rewind svg,
-.talkwave-player__btn--fastforward svg,
-.talkwave-player__btn--volume svg {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-}
-
-.talkwave-player__btn--volume svg.bi-volume-mute {
-    display: none;
-}
-
-.talkwave-player__btn--volume.muted svg.bi-volume-up {
-    display: none;
-}
-
-.talkwave-player__btn--volume.muted svg.bi-volume-mute {
-    display: block;
-}
-
-.talkwave-player__btn--rewind:hover svg,
-.talkwave-player__btn--fastforward:hover svg {
-    fill: #ccc;
-    transform: scale(1.1);
-}
-
-.talkwave-player__btn--speed {
-    font-size: 12px;
-    border-radius: 4px;
-    background: 0 0;
-    padding: 1px 4px;
-    width: 33px;
-    text-align: center;
-    color: #fff;
-    border: 1px solid #fff
-}
-
-
-.lds-ripple,
-.lds-ripple div {
-    box-sizing: border-box;
-}
-
-.lds-ripple {
-    display: inline-block;
-    position: relative;
-    width: 40px;
-    height: 40px;
-}
-
-.lds-ripple div {
-    position: absolute;
-    border: 4px solid currentColor;
-    opacity: 1;
-    border-radius: 50%;
-    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-
-.lds-ripple div:nth-child(2) {
-    animation-delay: -0.5s;
-}
-
-.lds-ripple.hide {
-    display: none;
-}
-
-@keyframes lds-ripple {
-    0% {
-        top: 18px;
-        left: 18px;
-        width: 4px;
-        height: 4px;
-        opacity: 0;
+    &__wrap {
+        display: grid;
+        grid-template-columns: 480px 1fr 480px;
     }
 
-    4.9% {
-        top: 18px;
-        left: 18px;
-        width: 4px;
-        height: 4px;
-        opacity: 0;
+    &__current {
+        display: flex;
+        align-items: center;
     }
 
-    5% {
-        top: 18px;
-        left: 18px;
-        width: 4px;
-        height: 4px;
-        opacity: 1;
+    &__artwork {
+        flex-shrink: 0;
+
+        img {
+            display: block;
+            max-width: 64px;
+            border-radius: 4px;
+        }
     }
 
-    100% {
-        top: 0;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        opacity: 0;
+    &__details {
+        flex-grow: 1;
+        margin-left: 16px;
+    }
+
+    &__podcast-title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &__episode-title {
+        font-size: 14px;
+        color: #ccc;
+    }
+
+    &__playback-controls,
+    &__progress,
+    &__options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    &__options {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__progress-bar {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    &__progress-filled {
+        background-color: #007bff;
+        height: 100%;
+        width: 0;
+        transition: width 0.3s ease;
+        border-radius: 4px;
+    }
+
+    &__timer,
+    &__duration {
+        flex-shrink: 0;
+        font-size: 14px;
+        color: #ccc;
+    }
+}
+
+.talkwave-player.is-loading {
+    .talkwave-button {
+        &--play {
+            display: none;
+        }
+    }
+
+    .loader {
+        display: block;
+    }
+}
+
+.talkwave-player.is-playing {
+    .talkwave-button {
+        pointer-events: all;
+
+        &--play {
+            display: none;
+        }
+
+        &--pause {
+            display: block;
+        }
+    }
+}
+
+.talkwave-player.is-muted {
+    .talkwave-button {
+        &--mute {
+            display: block;
+        }
+
+        &--unmute {
+            display: none;
+        }
     }
 }
