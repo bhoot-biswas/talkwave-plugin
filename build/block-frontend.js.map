@@ -1,1 +1,0 @@
-{"version":3,"file":"block-frontend.js","mappings":";;;;AAAAA,OAAO,CAACC,GAAG,CAAE,eAAgB,CAAC,C","sources":["webpack://talkwave/./src/block-frontend.js"],"sourcesContent":["console.log( 'frontend test' )"],"names":["console","log"],"sourceRoot":""}
