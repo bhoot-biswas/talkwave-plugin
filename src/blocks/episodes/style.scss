@@ -5,8 +5,56 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-episodes {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-talkwave-episodes {
+	.episode-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+	}
+
+	.episode-title {
+		font-size: 1em;
+	}
+
+	.image-wrapper {
+		position: relative;
+		transition: box-shadow 0.3s ease;
+
+		img {
+			width: 100%;
+			height: auto;
+			border-radius: 4px;
+			transition: opacity 0.3s ease;
+		}
+
+		.image-overlay {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.talkwave-button--play,
+		.talkwave-button--pause,
+		.loader {
+			width: 56px;
+			height: 56px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		&:hover {
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+			.series-image {
+				opacity: 0.8;
+			}
+
+			.talkwave-button--play,
+			.talkwave-button--pause {
+				opacity: 1;
+			}
+		}
+	}
 }
