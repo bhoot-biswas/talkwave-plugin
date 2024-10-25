@@ -57,11 +57,10 @@ final class Talkwave {
 	public function register_blocks() {
 		$custom_blocks = array(
 			'layout',
+			'sidebar-navigation',
 			'podcasts',
 			'episodes',
 			'tags',
-			'episode-image',
-			'sidebar-navigation',
 		);
 
 		foreach ( $custom_blocks as $block ) {
