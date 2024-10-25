@@ -84,12 +84,29 @@
 		}
 	}
 
+	.podcast-item {
+		display: flex;
+
+		.podcast-image-wrapper {
+			flex-shrink: 0;
+
+			img {
+				max-width: 256px;
+			}
+		}
+
+		.podcast-content {
+			flex-grow: 1;
+			margin-left: 48px;
+		}
+	}
+
 	@media (min-width: 768px) {
 		.episode-grid {
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
-	
+
 	@media (min-width: 992px) {
 		.episode-grid {
 			grid-template-columns: repeat(4, 1fr);
@@ -97,8 +114,8 @@
 	}
 
 	@media (min-width: 1200px) {
-        .episode-grid {
-            grid-template-columns: repeat(6, 1fr);
-        }
-    }
+		.episode-grid {
+			grid-template-columns: repeat(6, 1fr);
+		}
+	}
 }
