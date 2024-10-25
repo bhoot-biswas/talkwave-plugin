@@ -9,7 +9,11 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"interactivity": true
+		"interactivity": true,
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"textdomain": "episodes",
 	"editorScript": "file:./index.js",
