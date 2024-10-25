@@ -11,6 +11,23 @@
   padding: 8px;
   padding-bottom: 94px;
   box-sizing: border-box;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar {
+  width: 10px;
+}
+.wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar-thumb {
+  background: var(--wp--preset--color--haze);
+  border-radius: 10px;
+}
+.wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar-thumb:hover {
+  background: var(--wp--preset--color--glow);
 }
 
 @media (min-width: 992px) {

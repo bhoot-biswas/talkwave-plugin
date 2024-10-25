@@ -4,7 +4,7 @@
     left: 0;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 480px 1fr 480px;
+    grid-template-columns: 30% 1fr 30%;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
@@ -30,16 +30,25 @@
 
     &__details {
         flex-grow: 1;
+        max-width: 100%;
         margin-left: 16px;
     }
 
     &__podcast-title {
+        overflow: hidden;
+        width: 70%;
         font-size: 16px;
         font-weight: 600;
+        white-space: nowrap; 
+        text-overflow: ellipsis;
     }
 
     &__episode-title {
+        overflow: hidden;
+        width: 70%;
         font-size: 14px;
+        white-space: nowrap; 
+        text-overflow: clip;
         color: #ccc;
     }
 
@@ -141,6 +150,17 @@
         &__progress,
         &__options {
             display: none;
+        }
+
+        &__controls {
+            align-items: flex-end;
+        }
+
+        .talkwave-button {
+            &--rewind,
+            &--fastforward {
+                display: none;
+            }
         }
     }
 }
