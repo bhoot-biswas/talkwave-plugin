@@ -1,7 +1,7 @@
 import { store, getElement, getContext } from "@wordpress/interactivity";
 import { Howl, Howler } from "howler";
 
-import "./frontend.scss";
+import "./scss/frontend.scss";
 
 function padNum(num) {
 	return ("" + (num + 100)).substring(1);

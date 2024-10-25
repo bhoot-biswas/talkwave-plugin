@@ -1,0 +1,83 @@
+.talkwave-button {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    background-color: transparent;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+    }
+
+    &.hide {
+        display: none;
+    }
+
+    &--pause,
+    &--mute {
+        display: none;
+    }
+
+
+    &--play,
+    &--pause {
+        background-color: #fff;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+        svg {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            fill: #000;
+        }
+
+        &:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &--rewind,
+    &--fastforward,
+    &--mute,
+    &--unmute {
+        &:hover {
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &--rewind,
+    &--fastforward,
+    &--mute,
+    &--unmute,
+    &--speed {
+        pointer-events: none;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &--speed {
+        font-size: 12px;
+        border-radius: 4px;
+        background: 0 0;
+        padding: 1px 4px;
+        width: 33px;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #fff;
+    }
+}
