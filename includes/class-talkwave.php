@@ -115,7 +115,7 @@ final class Talkwave {
 				<div class="talkwave-player__progress">
 					<time class="talkwave-player__timer" data-wp-text="state.timerHTML"></time>
 					<div class="talkwave-player__progress-bar" role="progressbar" title="<?php echo esc_attr__( 'Seek', 'talkwave' ); ?>" data-wp-on--click="actions.scrub">
-						<span class="talkwave-player__progress-filled" style="flex-basis: 13.8504%;"></span>
+						<span class="talkwave-player__progress-filled" data-wp-style--width="state.progress"></span>
 					</div>
 					<time class="talkwave-player__duration" data-wp-text="state.durationHTML"></time>
 				</div>

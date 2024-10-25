@@ -152,15 +152,16 @@ img {
 .talkwave-player__progress-bar {
   position: relative;
   width: 100%;
-  height: 4px;
-  background-color: #e0e0e0;
+  height: 6px;
+  background-color: var(--wp--preset--color--glow);
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
   margin: 10px 0;
 }
 .talkwave-player__progress-filled {
-  background-color: #007bff;
+  display: block;
+  background-color: var(--wp--preset--color--background);
   height: 100%;
   width: 0;
   transition: width 0.3s ease;
