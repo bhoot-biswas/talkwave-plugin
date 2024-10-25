@@ -7,9 +7,12 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-talkwave-episodes {
+  margin: 0 -16px;
+}
 .wp-block-talkwave-episodes .episode-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 .wp-block-talkwave-episodes .episode-item {
   border-radius: 8px;
@@ -66,6 +69,21 @@
 .wp-block-talkwave-episodes .episode-list .episode-item .episode-content {
   flex-grow: 1;
   margin-left: 16px;
+}
+@media (min-width: 768px) {
+  .wp-block-talkwave-episodes .episode-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .wp-block-talkwave-episodes .episode-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .wp-block-talkwave-episodes .episode-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/
