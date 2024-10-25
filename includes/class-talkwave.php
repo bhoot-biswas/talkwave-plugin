@@ -61,6 +61,7 @@ final class Talkwave {
 			'episodes',
 			'tags',
 			'episode-image',
+			'sidebar-navigation',
 		);
 
 		foreach ( $custom_blocks as $block ) {

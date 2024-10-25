@@ -5,8 +5,29 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-sidebar-navigation {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-talkwave-sidebar-navigation {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+
+        svg {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 1rem;
+        }
+
+        a {
+            display: block;
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .active a {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
 }

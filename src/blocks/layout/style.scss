@@ -7,7 +7,7 @@
 
 .wp-site-blocks>.wp-block-talkwave-layout {
 	display: grid;
-	gap: 8px;
+	gap: 16px;
 	grid-template-areas:
 		"header header"
 		"sidebar main"
@@ -24,7 +24,7 @@
 	}
 
 	>aside {
-		width: 300px;
+		width: 272px;
 		grid-area: sidebar;
 	}
 

@@ -9,7 +9,7 @@
  */
 .wp-site-blocks > .wp-block-talkwave-layout {
   display: grid;
-  gap: 8px;
+  gap: 16px;
   grid-template-areas: "header header" "sidebar main" "footer footer";
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr auto;
@@ -27,7 +27,7 @@
 .wp-site-blocks > .wp-block-talkwave-layout > aside {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
-  width: 300px;
+  width: 272px;
   grid-area: sidebar;
 }
 .wp-site-blocks > .wp-block-talkwave-layout > .wp-block-group {
