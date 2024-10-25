@@ -89,6 +89,9 @@ img {
   position: fixed;
   bottom: 0;
   left: 0;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 480px 1fr 480px;
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
@@ -96,10 +99,6 @@ img {
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
   background-color: #000000;
   color: #fff;
-}
-.talkwave-player__wrap {
-  display: grid;
-  grid-template-columns: 480px 1fr 480px;
 }
 .talkwave-player__current {
   display: flex;
@@ -135,6 +134,11 @@ img {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.talkwave-player__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .talkwave-player__progress-bar {
   position: relative;
@@ -192,6 +196,15 @@ img {
 }
 .talkwave-player.is-muted .talkwave-button--unmute {
   display: none;
+}
+
+@media (max-width: 991.98px) {
+  .talkwave-player {
+    grid-template-columns: auto auto;
+  }
+  .talkwave-player__progress, .talkwave-player__options {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=frontend.css.map*/

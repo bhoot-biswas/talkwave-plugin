@@ -2,6 +2,9 @@
     position: fixed;
     bottom: 0;
     left: 0;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 480px 1fr 480px;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
@@ -9,11 +12,6 @@
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
     background-color: #000000;
     color: #fff;
-
-    &__wrap {
-        display: grid;
-        grid-template-columns: 480px 1fr 480px;
-    }
 
     &__current {
         display: flex;
@@ -58,6 +56,12 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     &__progress-bar {
@@ -125,6 +129,17 @@
         }
 
         &--unmute {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .talkwave-player {
+        grid-template-columns: auto auto;
+
+        &__progress,
+        &__options {
             display: none;
         }
     }
