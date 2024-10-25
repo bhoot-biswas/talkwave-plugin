@@ -6,45 +6,37 @@
  */
 
 .wp-site-blocks>.wp-block-talkwave-layout {
-	display: grid;
-	gap: 16px;
-	grid-template-areas:
-		"header header"
-		"sidebar main"
-		"footer footer";
-	grid-template-columns: auto 1fr;
-	grid-template-rows: auto 1fr auto;
-	height: 100vh;
 	padding: 8px;
 	padding-bottom: 94px;
 	box-sizing: border-box;
-
-	>header {
-		grid-area: header;
-	}
-
-	>aside {
-		width: 272px;
-		grid-area: sidebar;
-	}
-
-	>.wp-block-group {
-		grid-area: main;
-		overflow-y: scroll;
-	}
 }
 
-.logged-in .wp-site-blocks>.wp-block-talkwave-layout {
-	height: calc(100vh - 32px);
-}
+@media (min-width: 992px) {
+	.wp-site-blocks>.wp-block-talkwave-layout {
+		display: grid;
+		gap: 16px;
+		grid-template-areas:
+			"header header"
+			"sidebar main";
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto 1fr;
 
-.wp-block-navigation__responsive-container-open {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: #ffffff;
-	color: var(--wp--preset--color--primary);
+		>header {
+			grid-area: header;
+		}
+
+		>aside {
+			width: 272px;
+			grid-area: sidebar;
+		}
+
+		>.wp-block-group {
+			grid-area: main;
+			overflow-y: scroll;
+		}
+	}
+
+	.logged-in .wp-site-blocks>.wp-block-talkwave-layout {
+		height: calc(100vh - 32px);
+	}
 }
