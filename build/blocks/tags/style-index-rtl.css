@@ -7,36 +7,26 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-/* Tag list container styles */
-/* Tag list styles using grid layout */
-.tag-list {
+.wp-block-talkwave-tags .tags-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: inline-flex;
   flex-wrap: wrap;
   gap: 16px;
-  /* Gap between tags */
   justify-items: start;
-  /* Align tags to the left */
 }
-
-/* Individual tag item styles */
-/* Tag link styles */
-.tag-link {
+.wp-block-talkwave-tags .tag-link {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #f5f5f5;
+  background-color: var(--wp--preset--color--haze);
   border-radius: 50px;
-  color: #333;
+  color: var(--wp--preset--color--tertiary);
   text-decoration: none;
   font-size: 0.9rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-.tag-link:hover {
-  background-color: #0073aa;
-  /* WordPress blue color */
-  color: #fff;
-  border-color: #0073aa;
+.wp-block-talkwave-tags .tag-link:hover {
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--primary);
 }

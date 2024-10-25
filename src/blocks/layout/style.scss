@@ -14,12 +14,13 @@
 @media (min-width: 992px) {
 	.wp-site-blocks>.wp-block-talkwave-layout {
 		display: grid;
-		gap: 16px;
+		gap: 12px;
 		grid-template-areas:
 			"header header"
 			"sidebar main";
 		grid-template-columns: auto 1fr;
 		grid-template-rows: auto 1fr;
+		height: 100vh;
 
 		>header {
 			grid-area: header;

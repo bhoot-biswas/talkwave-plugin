@@ -13,22 +13,20 @@
 	// Check if there are any tags
 	if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) : ?>
 
-		<div class="tag-list-container">
-			<ul class="tag-list">
-				<?php foreach ( $tags as $tag ) : 
-					$tag_link = get_tag_link( $tag->term_id ); // Get the tag link
-					$tag_name = $tag->name; // Tag name
-					?>
-					<li class="tag-item">
-						<a href="<?php echo esc_url( $tag_link ); ?>" class="tag-link">
-							<?php echo esc_html( $tag_name ); ?>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
+		<ul class="tags-list">
+			<?php foreach ( $tags as $tag ) : 
+				$tag_link = get_tag_link( $tag->term_id ); // Get the tag link
+				$tag_name = $tag->name; // Tag name
+				?>
+				<li class="tag-item">
+					<a href="<?php echo esc_url( $tag_link ); ?>" class="tag-link">
+						<?php echo esc_html( $tag_name ); ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 
 	<?php else : ?>
 		<p>No tags found.</p>
 	<?php endif; ?>
-	</div>
+</div>
