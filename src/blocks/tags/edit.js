@@ -32,7 +32,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Tags – hello from the editor!', 'tags' ) }
+			{ __( 'Episode tags will display here once added.' ) }
 		</p>
 	);
 }

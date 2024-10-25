@@ -54,7 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 function Edit() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Sidebar Navigation – hello from the editor!', 'sidebar-navigation')
+    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Your sidebar navigation will appear here once links are added.")
   });
 }
 
@@ -178,7 +178,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"talkwave/sidebar-navigation","version":"0.1.0","title":"Sidebar Navigation","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"sidebar-navigation","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"talkwave/sidebar-navigation","version":"0.1.0","title":"Sidebar Navigation","category":"widgets","icon":"smiley","description":"Provides a sidebar navigation menu to guide users through key pages or sections on your site.","example":{},"supports":{"html":false},"textdomain":"sidebar-navigation","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

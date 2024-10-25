@@ -6,7 +6,7 @@
 	"title": "Layout",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Creates a flexible layout with designated areas for header, sidebar, main content, and footer. Supports inner blocks for customizable design.",
 	"example": {},
 	"supports": {
 		"html": false

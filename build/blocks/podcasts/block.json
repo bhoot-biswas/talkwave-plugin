@@ -6,7 +6,7 @@
   "title": "Podcasts",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "Displays a list of podcast shows, ideal for showcasing a collection of audio series within posts or pages.",
   "example": {},
   "supports": {
     "html": false

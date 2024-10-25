@@ -6,7 +6,7 @@
 	"title": "Episodes",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Displays a list of episodes, ideal for showcasing podcast or video series within posts or pages.",
 	"example": {},
 	"supports": {
 		"interactivity": true,

@@ -32,7 +32,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Podcasts – hello from the editor!', 'podcasts' ) }
+			{ __( 'Your podcast shows will display here once added.' ) }
 		</p>
 	);
 }

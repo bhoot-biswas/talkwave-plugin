@@ -225,7 +225,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"talkwave/layout","version":"0.1.0","title":"Layout","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"layout","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewStyle":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"talkwave/layout","version":"0.1.0","title":"Layout","category":"widgets","icon":"smiley","description":"Creates a flexible layout with designated areas for header, sidebar, main content, and footer. Supports inner blocks for customizable design.","example":{},"supports":{"html":false},"textdomain":"layout","editorScript":"file:./index.js","editorStyle":"file:./index.css","viewStyle":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

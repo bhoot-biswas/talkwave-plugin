@@ -6,7 +6,7 @@
 	"title": "Tags",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Displays a list of tags related to episodes, helping users explore content by topic.",
 	"example": {},
 	"supports": {
 		"html": false
