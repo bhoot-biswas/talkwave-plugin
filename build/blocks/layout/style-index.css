@@ -1,0 +1,55 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/layout/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-site-blocks > .wp-block-talkwave-layout {
+  display: grid;
+  gap: 8px;
+  grid-template-areas: "header header" "sidebar main" "footer footer";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  padding: 8px;
+  padding-bottom: 94px;
+  box-sizing: border-box;
+}
+.wp-site-blocks > .wp-block-talkwave-layout > header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+}
+.wp-site-blocks > .wp-block-talkwave-layout > aside {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  width: 300px;
+  grid-area: sidebar;
+}
+.wp-site-blocks > .wp-block-talkwave-layout > .wp-block-group {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: main;
+  overflow-y: scroll;
+}
+
+.logged-in .wp-site-blocks > .wp-block-talkwave-layout {
+  height: calc(100vh - 32px);
+}
+
+.wp-block-navigation__responsive-container-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--wp--preset--color--primary);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

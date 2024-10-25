@@ -56,6 +56,7 @@ final class Talkwave {
 	 */
 	public function register_blocks() {
 		$custom_blocks = array(
+			'layout',
 			'podcasts',
 			'episodes',
 			'tags',

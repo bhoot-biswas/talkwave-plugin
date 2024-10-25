@@ -48,7 +48,7 @@
 		}
 		?>
 		<div 
-			class="episode-grid"
+			class="<?php echo is_archive() ? 'episode-list' : 'episode-grid'; ?>"
 			data-wp-init="callbacks.setPlaylist"
 			<?php
 			echo wp_interactivity_data_wp_context(
@@ -67,7 +67,7 @@
 				?>
 				<div 
 					class="episode-item"
-                    data-wp-class--is-loading="state.isLoading"
+					data-wp-class--is-loading="state.isLoading"
 					data-wp-class--is-playing="state.isPlaying"
 					<?php
 					echo wp_interactivity_data_wp_context(
@@ -96,12 +96,31 @@
 						</div>
 					</div>
 
-					<?php
-						the_title(
-							sprintf( '<h2 class="episode-title"><a href="%s" rel="bookmark">', esc_attr( esc_url( get_permalink() ) ) ),
-							'</a></h2>'
-						);
-					?>
+					<div class="episode-content">
+						<?php
+							the_title(
+								sprintf( '<h2 class="episode-title"><a href="%s" rel="bookmark">', esc_attr( esc_url( get_permalink() ) ) ),
+								'</a></h2>'
+							);
+						?>
+						
+						<?php if ( is_archive() ) : ?>
+							<!-- Episode meta -->
+							<div class="episode-meta">
+								<?php
+								$episode_date = get_the_date( 'F j, Y' );
+								$episode_time = get_the_date( 'g:i A' );
+								?>
+								<span class="episode-date"><?php echo esc_html( $episode_date ); ?></span>
+								<span class="episode-time"><?php echo esc_html( $episode_time ); ?></span>
+							</div>
+
+							<!-- Episode excerpt -->
+							<div class="episode-excerpt">
+								<?php the_excerpt(); ?>
+							</div>
+						<?php endif; ?>
+					</div>
 				</div>
 				<?php
 			endforeach;

@@ -8,12 +8,20 @@
 .wp-block-talkwave-episodes {
 	.episode-grid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+	.episode-item {
+		border-radius: 8px;
+        padding: 12px;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 	}
 
 	.episode-title {
-		font-size: 1em;
+		font-size: 1rem;
 	}
 
 	.image-wrapper {
@@ -21,6 +29,7 @@
 		transition: box-shadow 0.3s ease;
 
 		img {
+			display: block;
 			width: 100%;
 			height: auto;
 			border-radius: 4px;
@@ -54,6 +63,21 @@
 			.talkwave-button--play,
 			.talkwave-button--pause {
 				opacity: 1;
+			}
+		}
+	}
+
+	.episode-list {
+		.episode-item {
+			display: flex;
+
+			.image-wrapper img {
+				max-width: 160px;
+			}
+
+			.episode-content {
+				flex-grow: 1;
+				margin-left: 16px;
 			}
 		}
 	}

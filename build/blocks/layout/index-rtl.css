@@ -1,0 +1,37 @@
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/layout/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-talkwave-layout > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: grid;
+  gap: 8px;
+  grid-template-areas: "header header" "sidebar main" "footer footer";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100vh;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.wp-block-talkwave-layout > .block-editor-inner-blocks > .block-editor-block-list__layout header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+}
+.wp-block-talkwave-layout > .block-editor-inner-blocks > .block-editor-block-list__layout aside {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  width: 300px;
+  grid-area: sidebar;
+}
+.wp-block-talkwave-layout > .block-editor-inner-blocks > .block-editor-block-list__layout main {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: main;
+  overflow-y: scroll;
+}
