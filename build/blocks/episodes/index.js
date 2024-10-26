@@ -178,7 +178,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"talkwave/episodes","version":"0.1.0","title":"Episodes","category":"widgets","icon":"smiley","description":"Displays a list of episodes, ideal for showcasing podcast or video series within posts or pages.","example":{},"supports":{"interactivity":true,"align":["wide","full"]},"textdomain":"episodes","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScriptModule":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"talkwave/episodes","version":"0.1.0","title":"Episodes","category":"widgets","icon":"smiley","description":"Displays a list of episodes, ideal for showcasing podcast or video series within posts or pages.","example":{},"supports":{"align":["wide","full"]},"textdomain":"talkwave","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ })
 

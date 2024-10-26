@@ -69,6 +69,10 @@ final class Talkwave {
 	}
 
 	public function audio_player_html() {
+		if ( ! ( is_front_page() || is_tax( 'series' ) ) ) {
+			return;
+		}
+
 		?>
 		<div
 			class="talkwave-player"
@@ -142,15 +146,17 @@ final class Talkwave {
 			plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/frontend.css',
 		);
 
-		wp_enqueue_script_module(
-			'talkwave-frontend',
-			plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/frontend.js',
-			array(
+		if ( is_front_page() || is_tax( 'series' ) ) {
+			wp_enqueue_script_module(
+				'talkwave-frontend',
+				plugin_dir_url( TALKWAVE_PLUGIN_FILE ) . 'build/frontend.js',
 				array(
-					'id'     => '@wordpress/interactivity',
-					'import' => 'dynamic',
+					array(
+						'id'     => '@wordpress/interactivity',
+						'import' => 'dynamic',
+					),
 				),
-			),
-		);
+			);
+		}
 	}
 }

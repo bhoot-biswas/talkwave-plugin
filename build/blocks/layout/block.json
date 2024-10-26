@@ -11,9 +11,8 @@
   "supports": {
     "html": false
   },
-  "textdomain": "layout",
+  "textdomain": "talkwave",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "viewStyle": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewStyle": "file:./style-index.css"
 }
