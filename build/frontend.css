@@ -115,6 +115,17 @@ img {
     opacity: 0;
   }
 }
+.wp-block-navigation__responsive-container-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--foreground);
+}
+
 .talkwave-player {
   position: fixed;
   bottom: 0;

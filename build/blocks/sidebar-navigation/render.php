@@ -14,7 +14,7 @@
 		),
 		'all-episodes' => array(
 			'title' => __( 'All Episodes' ),
-			'url'   => home_url( '/all-episodes/' ),
+			'url'   => home_url( '/podcast/' ),
 			'icon'  => 'mic',
 		),
 		// 'library'      => array(
