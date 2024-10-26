@@ -202,22 +202,19 @@ const { state, actions } = store("talkwave", {
 			let sound = state.playlists[state.currentPlaylistId][state.index].howl;
 			if (sound) sound.pause();
 		},
-		skip: (direction, playlistId = state.currentPlaylistId) => {
-			let index = state.index;
-			let playlist = state.playlists[playlistId];
-
-			if (direction === "prev") {
-				index = index - 1 < 0 ? playlist.length - 1 : index - 1;
-			} else {
-				index = (index + 1) % playlist.length;
-			}
-
+		skip: ({ direction = "next", playlistId = state.currentPlaylistId } = {}) => {
+			const { ref } = getElement();
+			direction = ref.dataset.direction || direction;
+		
+			const playlist = state.playlists[playlistId];
+			const index = (state.index + (direction === "prev" ? -1 : 1) + playlist.length) % playlist.length;
+		
 			actions.skipTo(index, playlistId);
 		},
 		skipTo: (index, playlistId) => {
 			let sound = state.playlists[playlistId][state.index].howl;
 			if (sound) sound.stop();
-			// actions.play(index, playlistId);
+			actions.play(index, playlistId);
 		},
 		volume: (val) => {
 			Howler.volume(val);
