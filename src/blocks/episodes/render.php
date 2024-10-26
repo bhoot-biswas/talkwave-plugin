@@ -10,6 +10,16 @@ $args = array(
 	'order'          => 'DESC',
 );
 
+if ( is_tax( 'series' ) ) {
+    $args['tax_query'] = array(
+        array(
+            'taxonomy' => 'series',
+            'field'    => 'slug',
+            'terms'    => get_queried_object()->slug,
+        ),
+    );
+}
+
 // The query
 $latest_episodes = get_posts( $args );
 
