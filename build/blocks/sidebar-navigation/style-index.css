@@ -1,1 +1,38 @@
-.wp-block-talkwave-sidebar-navigation ul{display:flex;flex-direction:column;font-size:1rem;gap:1px;list-style:none;margin:0;padding:0}.wp-block-talkwave-sidebar-navigation ul svg{display:inline-block;height:24px;margin-right:1rem;vertical-align:middle;width:24px}.wp-block-talkwave-sidebar-navigation ul a{border-radius:8px;display:block;padding:12px 16px}.wp-block-talkwave-sidebar-navigation ul .active a,.wp-block-talkwave-sidebar-navigation ul a:hover{background-color:var(--wp--preset--color--haze)}
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/sidebar-navigation/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-talkwave-sidebar-navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+.wp-block-talkwave-sidebar-navigation ul svg {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+.wp-block-talkwave-sidebar-navigation ul a {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+.wp-block-talkwave-sidebar-navigation ul a:hover {
+  background-color: var(--wp--preset--color--haze);
+}
+.wp-block-talkwave-sidebar-navigation ul .active a {
+  background-color: var(--wp--preset--color--haze);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

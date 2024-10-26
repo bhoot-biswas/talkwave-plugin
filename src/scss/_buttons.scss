@@ -12,7 +12,6 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
     font-family: inherit;
     line-height: 1;
-    // text-transform: uppercase;
     font-size: var(--wp--preset--font-size--small);
     background-color: var(--wp--preset--color--primary);
     color: var(--wp--preset--color--foreground);
@@ -44,7 +43,9 @@
     &--rewind,
     &--fastforward,
     &--mute,
-    &--unmute {
+    &--unmute,
+    &--prev,
+    &--next {
         &:hover {
             svg {
                 transform: scale(1.1);
@@ -56,7 +57,9 @@
     &--fastforward,
     &--mute,
     &--unmute,
-    &--speed {
+    &--speed,
+    &--prev,
+    &--next {
         pointer-events: none;
         opacity: 0.5;
 
@@ -80,22 +83,27 @@
 .wp-block-talkwave-episodes .episode-grid,
 .wp-block-talkwave-podcasts,
 .talkwave-player {
-    .talkwave-button--play,
-    .talkwave-button--pause {
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
+    .talkwave-button {
 
-    .talkwave-button--rewind,
-    .talkwave-button--fastforward,
-    .talkwave-button--mute,
-    .talkwave-button--unmute {
-        padding: 0;
-        background-color: transparent;
+        &--play,
+        &--pause {
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        &--rewind,
+        &--fastforward,
+        &--mute,
+        &--unmute,
+        &--prev,
+        &--next {
+            padding: 0;
+            background-color: transparent;
+        }
     }
 }

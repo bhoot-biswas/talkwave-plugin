@@ -1,1 +1,110 @@
-.wp-block-talkwave-episodes{margin:0 -12px}.wp-block-talkwave-episodes .episode-grid{display:grid;grid-template-columns:repeat(2,1fr)}.wp-block-talkwave-episodes .episode-item{border-radius:8px;padding:12px}.wp-block-talkwave-episodes .episode-item:hover{background-color:hsla(0,0%,100%,.1)}.wp-block-talkwave-episodes .episode-title{font-size:1rem}.wp-block-talkwave-episodes .image-wrapper{position:relative;transition:box-shadow .3s ease}.wp-block-talkwave-episodes .image-wrapper img{border-radius:4px;display:block;height:auto;transition:opacity .3s ease;width:100%}.wp-block-talkwave-episodes .image-wrapper .image-overlay{align-items:center;display:flex;inset:0;justify-content:center;position:absolute}.wp-block-talkwave-episodes .image-wrapper .loader,.wp-block-talkwave-episodes .image-wrapper .talkwave-button--pause,.wp-block-talkwave-episodes .image-wrapper .talkwave-button--play{height:56px;opacity:0;transition:opacity .3s ease;width:56px}.wp-block-talkwave-episodes .image-wrapper:hover{box-shadow:0 4px 10px rgba(0,0,0,.1)}.wp-block-talkwave-episodes .image-wrapper:hover .series-image{opacity:.8}.wp-block-talkwave-episodes .image-wrapper:hover .talkwave-button--pause,.wp-block-talkwave-episodes .image-wrapper:hover .talkwave-button--play{opacity:1}.wp-block-talkwave-episodes .episode-list .episode-item{display:flex}.wp-block-talkwave-episodes .episode-list .episode-item .image-wrapper img{max-width:160px}.wp-block-talkwave-episodes .episode-list .episode-item .episode-content{flex-grow:1;margin-left:16px}.wp-block-talkwave-episodes .podcast-item{display:flex;margin-bottom:4rem}.wp-block-talkwave-episodes .podcast-item .podcast-image-wrapper{flex-shrink:0}.wp-block-talkwave-episodes .podcast-item .podcast-image-wrapper img{max-width:256px}.wp-block-talkwave-episodes .podcast-item .podcast-content{flex-grow:1;margin-left:48px}.wp-block-talkwave-episodes .podcast-item .podcast-title{margin-top:0}.wp-block-talkwave-episodes .podcast-item .talkwave-button{border-radius:9999px;padding:12px 24px}@media(min-width:768px){.wp-block-talkwave-episodes .episode-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:992px){.wp-block-talkwave-episodes .episode-grid{grid-template-columns:repeat(4,1fr)}}@media(min-width:1200px){.wp-block-talkwave-episodes .episode-grid{grid-template-columns:repeat(6,1fr)}}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/episodes/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-talkwave-episodes {
+  margin: 0 -12px;
+}
+.wp-block-talkwave-episodes .episode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.wp-block-talkwave-episodes .episode-item {
+  border-radius: 8px;
+  padding: 12px;
+}
+.wp-block-talkwave-episodes .episode-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.wp-block-talkwave-episodes .episode-title {
+  font-size: 1rem;
+}
+.wp-block-talkwave-episodes .image-wrapper {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+.wp-block-talkwave-episodes .image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+.wp-block-talkwave-episodes .image-wrapper .image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wp-block-talkwave-episodes .image-wrapper .talkwave-button--play,
+.wp-block-talkwave-episodes .image-wrapper .talkwave-button--pause,
+.wp-block-talkwave-episodes .image-wrapper .loader {
+  width: 56px;
+  height: 56px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.wp-block-talkwave-episodes .image-wrapper:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.wp-block-talkwave-episodes .image-wrapper:hover .series-image {
+  opacity: 0.8;
+}
+.wp-block-talkwave-episodes .image-wrapper:hover .talkwave-button--play,
+.wp-block-talkwave-episodes .image-wrapper:hover .talkwave-button--pause {
+  opacity: 1;
+}
+.wp-block-talkwave-episodes .episode-list .episode-item {
+  display: flex;
+}
+.wp-block-talkwave-episodes .episode-list .episode-item .image-wrapper img {
+  max-width: 160px;
+}
+.wp-block-talkwave-episodes .episode-list .episode-item .episode-content {
+  flex-grow: 1;
+  margin-left: 16px;
+}
+.wp-block-talkwave-episodes .podcast-item {
+  display: flex;
+  margin-bottom: 4rem;
+}
+.wp-block-talkwave-episodes .podcast-item .podcast-image-wrapper {
+  flex-shrink: 0;
+}
+.wp-block-talkwave-episodes .podcast-item .podcast-image-wrapper img {
+  max-width: 256px;
+}
+.wp-block-talkwave-episodes .podcast-item .podcast-content {
+  flex-grow: 1;
+  margin-left: 48px;
+}
+.wp-block-talkwave-episodes .podcast-item .podcast-title {
+  margin-top: 0;
+}
+.wp-block-talkwave-episodes .podcast-item .talkwave-button {
+  padding: 12px 24px;
+  border-radius: 9999px;
+}
+@media (min-width: 768px) {
+  .wp-block-talkwave-episodes .episode-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .wp-block-talkwave-episodes .episode-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .wp-block-talkwave-episodes .episode-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -1,1 +1,67 @@
-.wp-block-talkwave-tags .tags-list{display:grid;gap:16px;grid-template-columns:repeat(4,1fr);list-style:none;margin:0;padding:0}.wp-block-talkwave-tags .tag-link{align-items:flex-end;background-color:var(--wp--preset--color--primary);border-radius:8px;color:var(--wp--preset--color--foreground);display:flex;font-weight:700;min-height:100px;padding:10px 15px;text-decoration:none;transition:background-color .3s ease,color .3s ease}.wp-block-talkwave-tags .tag-link:hover{background-color:var(--wp--preset--color--tertiary);color:var(--wp--preset--color--background)}.wp-block-talkwave-tags li:first-child .tag-link{background-color:#4158d0;background-image:linear-gradient(43deg,#4158d0,#c850c0 46%,#ffcc70)}.wp-block-talkwave-tags li:nth-child(2) .tag-link,.wp-block-talkwave-tags li:nth-child(3) .tag-link{background-color:#0093e9;background-image:linear-gradient(160deg,#0093e9,#80d0c7)}.wp-block-talkwave-tags li:nth-child(4) .tag-link{background-color:#d9afd9;background-image:linear-gradient(0deg,#d9afd9,#97d9e1)}.wp-block-talkwave-tags li:nth-child(5) .tag-link{background-color:#00dbde;background-image:linear-gradient(90deg,#00dbde,#fc00ff)}.wp-block-talkwave-tags li:nth-child(6) .tag-link{background-color:#8bc6ec;background-image:linear-gradient(135deg,#8bc6ec,#9599e2)}.wp-block-talkwave-tags li:nth-child(7) .tag-link{background-color:#08aeea;background-image:linear-gradient(0deg,#08aeea,#2af598)}.wp-block-talkwave-tags li:nth-child(8) .tag-link{background-color:#fa8bff;background-image:linear-gradient(45deg,#fa8bff,#2bd2ff 52%,#2bff88 90%)}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/tags/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-talkwave-tags .tags-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.wp-block-talkwave-tags .tag-link {
+  display: flex;
+  align-items: flex-end;
+  min-height: 100px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--foreground);
+}
+.wp-block-talkwave-tags .tag-link:hover {
+  background-color: var(--wp--preset--color--tertiary);
+  color: var(--wp--preset--color--background);
+}
+.wp-block-talkwave-tags li:nth-child(1) .tag-link {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+.wp-block-talkwave-tags li:nth-child(2) .tag-link {
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+.wp-block-talkwave-tags li:nth-child(3) .tag-link {
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+.wp-block-talkwave-tags li:nth-child(4) .tag-link {
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+}
+.wp-block-talkwave-tags li:nth-child(5) .tag-link {
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+}
+.wp-block-talkwave-tags li:nth-child(6) .tag-link {
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}
+.wp-block-talkwave-tags li:nth-child(7) .tag-link {
+  background-color: #08AEEA;
+  background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+}
+.wp-block-talkwave-tags li:nth-child(8) .tag-link {
+  background-color: #FA8BFF;
+  background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

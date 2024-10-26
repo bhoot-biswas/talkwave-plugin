@@ -93,21 +93,32 @@ final class Talkwave {
 			
 			<div class="talkwave-player__controls">
 				<div class="talkwave-player__playback-controls">
-					<button data-skip="-10" class="talkwave-button talkwave-button--rewind" title="<?php echo esc_attr__( 'Rewind 10 seconds', 'talkwave' ); ?>" data-wp-on--click="actions.rewind">
+					<button class="talkwave-button talkwave-button--rewind" title="<?php echo esc_attr__( 'Rewind 10 seconds', 'talkwave' ); ?>" data-skip="-10" data-wp-on--click="actions.rewind">
 						<?php echo Icon_Display::get_icon( 'arrow-counterclockwise', array( 'aria-hidden' => 'true' ) ); ?>
 						<span class="screen-reader-text"><?php esc_html_e( 'Rewind 10 Seconds', 'talkwave' ); ?></span>
+					</button>
+
+					<button class="talkwave-button talkwave-button--prev" title="<?php echo esc_attr__( 'Previous Episode', 'talkwave' ); ?>" data-direction="prev" data-wp-on--click="actions.skip">
+						<?php echo Icon_Display::get_icon( 'skip-start', array( 'aria-hidden' => 'true' ) ); ?>
+						<span class="screen-reader-text"><?php esc_html_e( 'Previous Episode', 'talkwave' ); ?></span>
 					</button>
 
 					<button title="<?php echo esc_attr__( 'Play', 'talkwave' ); ?>" class="talkwave-button talkwave-button--play" data-wp-on--click="actions.play">
 						<?php echo Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
 						<span class="screen-reader-text"><?php esc_html_e( 'Play Episode', 'talkwave' ); ?></span>
 					</button>
+
 					<button title="<?php echo esc_attr__( 'Pause', 'talkwave' ); ?>" class="talkwave-button talkwave-button--pause" data-wp-on--click="actions.pause">
 						<?php echo Icon_Display::get_icon( 'pause', array( 'aria-hidden' => 'true' ) ); ?>
 						<span class="screen-reader-text"><?php esc_html_e( 'Pause Episode', 'talkwave' ); ?></span>
 					</button>
 
 					<div class="loader"></div>
+
+					<button class="talkwave-button talkwave-button--next" title="<?php echo esc_attr__( 'Next Episode', 'talkwave' ); ?>" data-direction="next" data-wp-on--click="actions.skip">
+						<?php echo Icon_Display::get_icon( 'skip-end', array( 'aria-hidden' => 'true' ) ); ?>
+						<span class="screen-reader-text"><?php esc_html_e( 'Next Episode', 'talkwave' ); ?></span>
+					</button>
 
 					<button data-skip="30" class="talkwave-button talkwave-button--fastforward" title="<?php echo esc_attr__( 'Fast Forward 30 seconds', 'talkwave' ); ?>" data-wp-on--click="actions.fastForward">
 						<?php echo Icon_Display::get_icon( 'arrow-clockwise', array( 'aria-hidden' => 'true' ) ); ?>
