@@ -8,6 +8,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-site-blocks > .wp-block-talkwave-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   padding: 8px;
   padding-bottom: 94px;
   box-sizing: border-box;
@@ -15,6 +18,11 @@
   /* Track */
   /* Handle */
   /* Handle on hover */
+}
+.wp-site-blocks > .wp-block-talkwave-layout > aside,
+.wp-site-blocks > .wp-block-talkwave-layout > .wp-block-group {
+  border-radius: 8px;
+  background-color: var(--wp--preset--color--background);
 }
 .wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar {
   width: 10px;
@@ -45,12 +53,10 @@
   .wp-site-blocks > .wp-block-talkwave-layout > aside {
     width: 272px;
     grid-area: sidebar;
-    background-color: var(--wp--preset--color--background);
   }
   .wp-site-blocks > .wp-block-talkwave-layout > .wp-block-group {
     grid-area: main;
     overflow-y: scroll;
-    background-color: var(--wp--preset--color--background);
   }
   .logged-in .wp-site-blocks > .wp-block-talkwave-layout {
     height: calc(100vh - 32px);

@@ -6,9 +6,18 @@
  */
 
 .wp-site-blocks>.wp-block-talkwave-layout {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 	padding: 8px;
 	padding-bottom: 94px;
 	box-sizing: border-box;
+
+	>aside,
+	>.wp-block-group {
+		border-radius: 8px;
+		background-color: var(--wp--preset--color--background);
+	}
 
 	/* width */
 	::-webkit-scrollbar {
@@ -50,13 +59,11 @@
 		>aside {
 			width: 272px;
 			grid-area: sidebar;
-			background-color: var(--wp--preset--color--background);
 		}
 
 		>.wp-block-group {
 			grid-area: main;
 			overflow-y: scroll;
-			background-color: var(--wp--preset--color--background);
 		}
 	}
 
