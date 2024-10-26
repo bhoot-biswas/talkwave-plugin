@@ -86,6 +86,7 @@
 
 	.podcast-item {
 		display: flex;
+		margin-bottom: 4rem;
 
 		.podcast-image-wrapper {
 			flex-shrink: 0;
@@ -98,6 +99,15 @@
 		.podcast-content {
 			flex-grow: 1;
 			margin-left: 48px;
+		}
+
+		.podcast-title {
+			margin-top: 0;
+		}
+
+		.talkwave-button {
+			padding: 12px 24px;
+			border-radius: 9999px
 		}
 	}
 

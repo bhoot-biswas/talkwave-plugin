@@ -17,11 +17,11 @@
 			'url'   => home_url( '/all-episodes/' ),
 			'icon'  => 'mic',
 		),
-		'library'      => array(
-			'title' => __( 'Library' ),
-			'url'   => home_url( '/library/' ),
-			'icon'  => 'collection-play',
-		),
+		// 'library'      => array(
+		// 	'title' => __( 'Library' ),
+		// 	'url'   => home_url( '/library/' ),
+		// 	'icon'  => 'collection-play',
+		// ),
 		'news'         => array(
 			'title' => __( 'News' ),
 			'url'   => home_url( '/news/' ),

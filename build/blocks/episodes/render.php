@@ -88,16 +88,16 @@ else :
 				</div>
 
 				<div class="podcast-content">
-					<h2 class="series-title"><?php echo esc_html( $title ); ?></h2>
+					<h2 class="podcast-title"><?php echo esc_html( $title ); ?></h2>
 
 					<?php if ( $description ) : ?>
-						<div class="series-description">
+						<div class="podcast-description">
 							<?php echo wp_kses_post( wpautop( $description ) ); ?>
 						</div>
 					<?php endif; ?>
 
 					<div class="talkwave-buttons">
-						<button class="talkwave-button talkwave-button--play" data-wp-on--click="actions.handlePlaylist">
+						<button class="talkwave-button talkwave-button--play" data-wp-on--click="actions.handlePlaylist" data-wp-bind--disabled="state.playlistLoading">
 							<?php echo Talkwave\Icon_Display::get_icon( 'play', array( 'aria-hidden' => 'true' ) ); ?>
 							<span>Play</span>
 						</button>

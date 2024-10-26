@@ -72,6 +72,7 @@
 }
 .wp-block-talkwave-episodes .podcast-item {
   display: flex;
+  margin-bottom: 4rem;
 }
 .wp-block-talkwave-episodes .podcast-item .podcast-image-wrapper {
   flex-shrink: 0;
@@ -82,6 +83,13 @@
 .wp-block-talkwave-episodes .podcast-item .podcast-content {
   flex-grow: 1;
   margin-left: 48px;
+}
+.wp-block-talkwave-episodes .podcast-item .podcast-title {
+  margin-top: 0;
+}
+.wp-block-talkwave-episodes .podcast-item .talkwave-button {
+  padding: 12px 24px;
+  border-radius: 9999px;
 }
 @media (min-width: 768px) {
   .wp-block-talkwave-episodes .episode-grid {

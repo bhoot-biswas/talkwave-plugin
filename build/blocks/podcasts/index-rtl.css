@@ -82,7 +82,3 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
-.wp-block-create-block-podcasts {
-  border: 1px dotted #f00;
-}

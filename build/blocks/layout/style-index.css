@@ -45,10 +45,12 @@
   .wp-site-blocks > .wp-block-talkwave-layout > aside {
     width: 272px;
     grid-area: sidebar;
+    background-color: var(--wp--preset--color--background);
   }
   .wp-site-blocks > .wp-block-talkwave-layout > .wp-block-group {
     grid-area: main;
     overflow-y: scroll;
+    background-color: var(--wp--preset--color--background);
   }
   .logged-in .wp-site-blocks > .wp-block-talkwave-layout {
     height: calc(100vh - 32px);

@@ -6,19 +6,27 @@ img {
 }
 
 .talkwave-button {
-  border: none;
-  padding: 0;
+  box-sizing: border-box;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+  padding-top: var(--wp--preset--spacing--40);
+  padding-right: var(--wp--preset--spacing--40);
+  padding-bottom: var(--wp--preset--spacing--40);
+  padding-left: var(--wp--preset--spacing--40);
+  border-width: 0;
+  border-radius: 0.25rem;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-  background-color: transparent;
+  font-family: inherit;
+  line-height: 1;
+  font-size: var(--wp--preset--font-size--small);
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--primary);
 }
 .talkwave-button svg {
   width: 20px;
   height: 20px;
-  fill: #fff;
+  fill: var(--wp--preset--color--primary);
 }
 .talkwave-button.hide {
   display: none;
@@ -27,22 +35,21 @@ img {
   display: none;
 }
 .talkwave-button--play, .talkwave-button--pause {
-  background-color: #fff;
-  color: #000;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--background);
 }
 .talkwave-button--play svg, .talkwave-button--pause svg {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  fill: #000;
+  fill: var(--wp--preset--color--background);
 }
 .talkwave-button--play:hover, .talkwave-button--pause:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--primary);
+}
+.talkwave-button--play:hover svg, .talkwave-button--pause:hover svg {
+  fill: var(--wp--preset--color--primary);
 }
 .talkwave-button--rewind:hover svg, .talkwave-button--fastforward:hover svg, .talkwave-button--mute:hover svg, .talkwave-button--unmute:hover svg {
   transform: scale(1.1);
@@ -63,6 +70,60 @@ img {
   text-align: center;
   border: 1px solid #fff;
   color: #fff;
+}
+
+.wp-block-talkwave-episodes .episode-list .talkwave-button--play,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--pause,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--play,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--pause,
+.wp-block-talkwave-podcasts .talkwave-button--play,
+.wp-block-talkwave-podcasts .talkwave-button--pause,
+.talkwave-player .talkwave-button--play,
+.talkwave-player .talkwave-button--pause {
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.wp-block-talkwave-episodes .episode-list .talkwave-button--rewind,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--fastforward,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--mute,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--unmute,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--rewind,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--fastforward,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--mute,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--unmute,
+.wp-block-talkwave-podcasts .talkwave-button--rewind,
+.wp-block-talkwave-podcasts .talkwave-button--fastforward,
+.wp-block-talkwave-podcasts .talkwave-button--mute,
+.wp-block-talkwave-podcasts .talkwave-button--unmute,
+.talkwave-player .talkwave-button--rewind,
+.talkwave-player .talkwave-button--fastforward,
+.talkwave-player .talkwave-button--mute,
+.talkwave-player .talkwave-button--unmute {
+  padding: 0;
+  background-color: transparent;
+}
+.wp-block-talkwave-episodes .episode-list .talkwave-button--rewind svg,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--fastforward svg,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--mute svg,
+.wp-block-talkwave-episodes .episode-list .talkwave-button--unmute svg,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--rewind svg,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--fastforward svg,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--mute svg,
+.wp-block-talkwave-episodes .episode-grid .talkwave-button--unmute svg,
+.wp-block-talkwave-podcasts .talkwave-button--rewind svg,
+.wp-block-talkwave-podcasts .talkwave-button--fastforward svg,
+.wp-block-talkwave-podcasts .talkwave-button--mute svg,
+.wp-block-talkwave-podcasts .talkwave-button--unmute svg,
+.talkwave-player .talkwave-button--rewind svg,
+.talkwave-player .talkwave-button--fastforward svg,
+.talkwave-player .talkwave-button--mute svg,
+.talkwave-player .talkwave-button--unmute svg {
+  fill: var(--wp--preset--color--background);
 }
 
 .loader {
@@ -185,16 +246,19 @@ img {
 }
 
 .talkwave-player.is-playing .talkwave-button,
+.wp-block-talkwave-episodes .podcast-item.is-playing .podcast-content .talkwave-button,
 .wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper .talkwave-button,
 .wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button {
   pointer-events: all;
 }
 .talkwave-player.is-playing .talkwave-button--play,
+.wp-block-talkwave-episodes .podcast-item.is-playing .podcast-content .talkwave-button--play,
 .wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper .talkwave-button--play,
 .wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button--play {
   display: none;
 }
 .talkwave-player.is-playing .talkwave-button--pause,
+.wp-block-talkwave-episodes .podcast-item.is-playing .podcast-content .talkwave-button--pause,
 .wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper .talkwave-button--pause,
 .wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button--pause {
   display: block;

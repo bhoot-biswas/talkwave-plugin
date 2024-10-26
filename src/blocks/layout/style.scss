@@ -50,11 +50,13 @@
 		>aside {
 			width: 272px;
 			grid-area: sidebar;
+			background-color: var(--wp--preset--color--background);
 		}
 
 		>.wp-block-group {
 			grid-area: main;
 			overflow-y: scroll;
+			background-color: var(--wp--preset--color--background);
 		}
 	}
 
