@@ -43,6 +43,10 @@ final class Talkwave {
 	private function init() {
 		// Plugin initialization code here.
 		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_action( 'series_add_form_fields', array( $this, 'series_add_featured_field' ) );
+		add_action( 'series_edit_form_fields', array( $this, 'series_edit_featured_field' ) );
+		add_action( 'edited_series', array( $this, 'save_series_meta' ) );
+		add_action( 'created_series', array( $this, 'save_series_meta' ) );
 		add_action( 'wp_footer', array( $this, 'audio_player_html' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
@@ -66,6 +70,46 @@ final class Talkwave {
 		foreach ( $custom_blocks as $block ) {
 			register_block_type( plugin_dir_path( TALKWAVE_PLUGIN_FILE ) . 'build/blocks/' . $block );
 		}
+	}
+
+	public function series_add_featured_field() {
+		?>
+		<fieldset>
+			<legend class="screen-reader-text"><span><?php echo __( 'Featured' ); ?></span></legend>
+			<label for="term_meta_featured">
+				<input name="term_meta[featured]" type="checkbox" id="term_meta_featured" value="1">
+				<?php echo __( 'Mark as featured' ); ?>
+			</label>
+			<p class="description"><?php echo __( 'Check this box to mark as featured.' ); ?></p>
+		</fieldset>
+		<?php
+	}
+
+	public function series_edit_featured_field( $term ) {
+		$term_id  = $term->term_id;
+		$featured = get_term_meta( $term_id, 'featured', true );
+		?>
+		<tr class="form-field">
+			<th scope="row" valign="top">
+				<label for="term_meta_featured"><?php echo __( 'Featured' ); ?></label>
+			</th>
+			<td>
+				<fieldset>
+					<legend class="screen-reader-text"><span><?php echo __( 'Featured' ); ?></span></legend>
+					<label for="term_meta_featured">
+						<input name="term_meta[featured]" type="checkbox" id="term_meta_featured" value="1" <?php checked( $featured, 1 ); ?>>
+						<?php echo __( 'Mark as featured' ); ?>
+					</label>
+					<p class="description"><?php echo __( 'Check this box to mark as featured.' ); ?></p>
+				</fieldset>
+			</td>
+		</tr>
+		<?php
+	}
+
+	public function save_series_meta( $term_id ) {
+		$is_featured = isset( $_POST['term_meta']['featured'] ) ? 1 : 0;
+		update_term_meta( $term_id, 'featured', $is_featured );
 	}
 
 	public function audio_player_html() {

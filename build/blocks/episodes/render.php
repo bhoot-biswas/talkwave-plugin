@@ -11,13 +11,13 @@ $args = array(
 );
 
 if ( is_tax( 'series' ) ) {
-    $args['tax_query'] = array(
-        array(
-            'taxonomy' => 'series',
-            'field'    => 'slug',
-            'terms'    => get_queried_object()->slug,
-        ),
-    );
+	$args['tax_query'] = array(
+		array(
+			'taxonomy' => 'series',
+			'field'    => 'slug',
+			'terms'    => get_queried_object()->slug,
+		),
+	);
 }
 
 // The query
@@ -126,6 +126,7 @@ else :
 
 			foreach ( $latest_episodes as $index => $post ) :
 				setup_postdata( $post );
+				$album_art = ssp_episode_controller()->get_album_art( get_the_ID(), 'medium' );
 				?>
 				<div 
 					class="episode-item"
@@ -142,7 +143,11 @@ else :
 				>
 					<!-- Image link with play icon -->
 					<div class="image-wrapper">
-						<?php echo ssp_episode_image( get_the_ID(), 'medium' ); ?>
+						<img 
+							src="<?php echo esc_attr( apply_filters( 'ssp_album_art_cover', $album_art['src'], get_the_ID() ) ); ?>"
+							alt="<?php echo ! empty( $album_art['alt'] ) ? esc_attr( $album_art['alt'] ) : esc_attr( strip_tags( $post->post_title ) ); ?>"
+							title="<?php echo esc_attr( strip_tags( $post->post_title ) ); ?>"
+						>
 
 						<div class="image-overlay">
 							<button class="talkwave-button talkwave-button--play" data-wp-on--click="actions.play">
