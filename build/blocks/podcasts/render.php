@@ -8,13 +8,25 @@
 	data-wp-interactive="talkwave"
 >
 	<?php
-	// Get all terms from the 'series' taxonomy
-	$series_terms = get_terms(
-		array(
-			'taxonomy'   => 'series',
-			'hide_empty' => false, // Show even if there are no podcasts
-		)
+	// Base arguments for retrieving terms from the 'series' taxonomy
+	$args = array(
+		'taxonomy'   => 'series',
+		'hide_empty' => false, // Show even if there are no podcasts
 	);
+
+	// Conditionally add meta_query to show only featured items on the homepage
+	if ( is_front_page() ) {
+		$args['meta_query'] = array(
+			array(
+				'key'     => 'featured',
+				'value'   => '1',
+				'compare' => '=',
+			),
+		);
+	}
+
+	// Get all terms from the 'series' taxonomy
+	$series_terms = get_terms( $args );
 
 	// Check if terms exist
 	if ( ! empty( $series_terms ) && ! is_wp_error( $series_terms ) ) :
