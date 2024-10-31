@@ -49,3 +49,23 @@ function get_playlist_items( $atts = array(), $page = 1 ) {
 
 	return $items;
 }
+
+/**
+ * Retrieve the list of recently played episodes from the cookie.
+ *
+ * This function checks if the 'recently_played_episodes' cookie is set and,
+ * if so, returns an array of episode IDs. If the cookie is not set, it
+ * returns an empty array.
+ *
+ * @return array An array of episode IDs representing recently played episodes.
+ */
+function get_recently_played_episodes() {
+	// Check if the cookie exists
+	if ( isset( $_COOKIE['recently_played_episodes'] ) ) {
+		// Retrieve and explode the cookie into an array
+		return explode( ',', $_COOKIE['recently_played_episodes'] );
+	}
+
+	// Return an empty array if no episodes are found
+	return array();
+}
