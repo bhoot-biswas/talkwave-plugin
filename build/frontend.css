@@ -65,7 +65,9 @@ img {
 .wp-block-talkwave-podcasts .talkwave-button--play,
 .wp-block-talkwave-podcasts .talkwave-button--pause,
 .talkwave-player .talkwave-button--play,
-.talkwave-player .talkwave-button--pause {
+.talkwave-player .talkwave-button--pause,
+.wp-block-talkwave-recently-played .talkwave-button--play,
+.wp-block-talkwave-recently-played .talkwave-button--pause {
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -92,7 +94,13 @@ img {
 .talkwave-player .talkwave-button--mute,
 .talkwave-player .talkwave-button--unmute,
 .talkwave-player .talkwave-button--prev,
-.talkwave-player .talkwave-button--next {
+.talkwave-player .talkwave-button--next,
+.wp-block-talkwave-recently-played .talkwave-button--rewind,
+.wp-block-talkwave-recently-played .talkwave-button--fastforward,
+.wp-block-talkwave-recently-played .talkwave-button--mute,
+.wp-block-talkwave-recently-played .talkwave-button--unmute,
+.wp-block-talkwave-recently-played .talkwave-button--prev,
+.wp-block-talkwave-recently-played .talkwave-button--next {
   padding: 0;
   background-color: transparent;
 }

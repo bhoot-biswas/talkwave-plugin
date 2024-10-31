@@ -5,8 +5,69 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-recently-played {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-talkwave-recently-played {
+	.recently-played-episode {
+		display: flex;
+		align-items: center;
+		padding: 4px 8px;
+		border-radius: 8px;
+		transition: background-color 0.3s ease;
+
+		&:hover {
+			&:hover {
+				background-color: var(--wp--preset--color--mist);
+			}
+
+			.talkwave-button--play,
+			.talkwave-button--pause {
+				opacity: 1;
+			}
+		}
+	}
+
+	.image-wrapper {
+		position: relative;
+		flex-shrink: 0;
+
+		img {
+			display: block;
+			max-width: 64px;
+			height: auto;
+			border-radius: 4px;
+			transition: opacity 0.3s ease;
+		}
+
+		.image-overlay {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.talkwave-button--play,
+		.talkwave-button--pause,
+		.loader {
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+	}
+
+	.episode-content {
+		flex-grow: 1;
+		max-width: 100%;
+		margin-left: 16px;
+
+		.episode-title {
+			font-size: 1rem;
+			font-weight: normal;
+
+			a {
+				display: -webkit-box;
+				overflow: hidden;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+		}
+	}
 }
