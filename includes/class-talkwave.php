@@ -42,6 +42,7 @@ final class Talkwave {
 	// Initialize the plugin.
 	private function init() {
 		// Plugin initialization code here.
+		add_action( 'wp', array( $this, 'track_recently_played_episodes' ), -99 );
 		add_action( 'init', array( $this, 'register_blocks' ) );
 		add_action( 'series_add_form_fields', array( $this, 'series_add_featured_field' ) );
 		add_action( 'series_edit_form_fields', array( $this, 'series_edit_featured_field' ) );
@@ -49,6 +50,48 @@ final class Talkwave {
 		add_action( 'created_series', array( $this, 'save_series_meta' ) );
 		add_action( 'wp_footer', array( $this, 'audio_player_html' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Track recently played episodes.
+	 *
+	 * This function is hooked into the 'wp' action with a priority of -99 to ensure
+	 * it runs before the main query is executed. It checks if the current request
+	 * is for a podcast episode download and, if so, it tracks the episode ID in a
+	 * cookie.
+	 */
+	public function track_recently_played_episodes() {
+		if ( ! ssp_is_podcast_download() ) {
+			return;
+		}
+
+		global $wp_query;
+
+		// Get requested episode ID
+		$episode_id = intval( $wp_query->query_vars['podcast_episode'] );
+
+		if ( isset( $episode_id ) && $episode_id ) {
+			// Get episode post object
+			$episode = get_post( $episode_id );
+
+			// Make sure we have a valid episode post object
+			if ( ! $episode || ! is_object( $episode ) || is_wp_error( $episode ) || ! isset( $episode->ID ) ) {
+				return;
+			}
+
+			// Retrieve existing played episodes from the cookie if it exists
+			$recent_episodes = isset( $_COOKIE['recently_played_episodes'] ) ? explode( ',', $_COOKIE['recently_played_episodes'] ) : array();
+
+			// Add the new episode ID at the beginning of the array
+			array_unshift( $recent_episodes, $episode_id );
+
+			// Remove duplicates and limit the array to the last 5 episodes
+			$recent_episodes = array_unique( $recent_episodes );
+			$recent_episodes = array_slice( $recent_episodes, 0, 5 );
+
+			// Set the updated array as a cookie, imploding it into a string
+			setcookie( 'recently_played_episodes', implode( ',', $recent_episodes ), time() + ( 30 * 24 * 60 * 60 ), '/' ); // Expires in 1 month (30 days)
+		}
 	}
 
 	/**
@@ -65,6 +108,7 @@ final class Talkwave {
 			'podcasts',
 			'episodes',
 			'tags',
+			'recently-played',
 		);
 
 		foreach ( $custom_blocks as $block ) {
