@@ -29,8 +29,8 @@
   border-radius: 8px;
 }
 .wp-block-talkwave-sidebar-navigation ul a:hover {
-  background-color: var(--wp--preset--color--haze);
+  background-color: var(--wp--preset--color--mist);
 }
 .wp-block-talkwave-sidebar-navigation ul .active a {
-  background-color: var(--wp--preset--color--haze);
+  background-color: var(--wp--preset--color--mist);
 }

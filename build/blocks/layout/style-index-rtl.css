@@ -31,7 +31,7 @@
   border-radius: 10px;
 }
 .wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar-thumb {
-  background: var(--wp--preset--color--haze);
+  background: var(--wp--preset--color--mist);
   border-radius: 10px;
 }
 .wp-site-blocks > .wp-block-talkwave-layout ::-webkit-scrollbar-thumb:hover {

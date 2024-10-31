@@ -15,7 +15,7 @@
   padding: 12px;
 }
 .wp-block-talkwave-podcasts .podcast-series-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--wp--preset--color--mist);
 }
 .wp-block-talkwave-podcasts .podcast-series-item .series-title a,
 .wp-block-talkwave-podcasts .podcast-series-item .series-description {
