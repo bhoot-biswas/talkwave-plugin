@@ -223,31 +223,36 @@ img {
 
 .talkwave-player.is-loading .talkwave-button--play,
 .wp-block-talkwave-podcasts .podcast-series-item.is-loading .image-wrapper .talkwave-button--play,
-.wp-block-talkwave-episodes .episode-item.is-loading .image-wrapper .talkwave-button--play {
+.wp-block-talkwave-episodes .episode-item.is-loading .image-wrapper .talkwave-button--play,
+.recently-played-episodes .recently-played-episode.is-loading .talkwave-button--play {
   display: none;
 }
 .talkwave-player.is-loading .loader,
 .wp-block-talkwave-podcasts .podcast-series-item.is-loading .image-wrapper .loader,
-.wp-block-talkwave-episodes .episode-item.is-loading .image-wrapper .loader {
+.wp-block-talkwave-episodes .episode-item.is-loading .image-wrapper .loader,
+.recently-played-episodes .recently-played-episode.is-loading .loader {
   display: block;
 }
 
 .talkwave-player.is-playing .talkwave-button,
 .wp-block-talkwave-episodes .podcast-item.is-playing .podcast-content .talkwave-button,
 .wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper .talkwave-button,
-.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button {
+.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button,
+.recently-played-episodes .recently-played-episode.is-playing .talkwave-button {
   pointer-events: all;
 }
 .talkwave-player.is-playing .talkwave-button--play,
 .wp-block-talkwave-episodes .podcast-item.is-playing .podcast-content .talkwave-button--play,
 .wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper .talkwave-button--play,
-.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button--play {
+.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button--play,
+.recently-played-episodes .recently-played-episode.is-playing .talkwave-button--play {
   display: none;
 }
 .talkwave-player.is-playing .talkwave-button--pause,
 .wp-block-talkwave-episodes .podcast-item.is-playing .podcast-content .talkwave-button--pause,
 .wp-block-talkwave-podcasts .podcast-series-item.is-playing .image-wrapper .talkwave-button--pause,
-.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button--pause {
+.wp-block-talkwave-episodes .episode-item.is-playing .image-wrapper .talkwave-button--pause,
+.recently-played-episodes .recently-played-episode.is-playing .talkwave-button--pause {
   display: block;
   opacity: 1;
 }

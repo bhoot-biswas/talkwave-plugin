@@ -7,16 +7,28 @@
 
 .wp-block-talkwave-recently-played {
 	.recently-played-episode {
+		position: relative;
 		display: flex;
 		align-items: center;
-		padding: 4px 8px;
+		padding: 4px 64px 4px 8px;
 		border-radius: 8px;
 		transition: background-color 0.3s ease;
 
+		.talkwave-button--play,
+		.talkwave-button--pause,
+		.loader {
+			position: absolute;
+			top: 50%;
+			right: 8px;
+			width: 32px;
+			height: 32px;
+			margin-top: -16px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
 		&:hover {
-			&:hover {
-				background-color: var(--wp--preset--color--mist);
-			}
+			background-color: var(--wp--preset--color--mist);
 
 			.talkwave-button--play,
 			.talkwave-button--pause {
@@ -26,29 +38,13 @@
 	}
 
 	.image-wrapper {
-		position: relative;
 		flex-shrink: 0;
 
 		img {
 			display: block;
-			max-width: 64px;
+			max-width: 48px;
 			height: auto;
-			border-radius: 4px;
-			transition: opacity 0.3s ease;
-		}
-
-		.image-overlay {
-			position: absolute;
-			inset: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.talkwave-button--play,
-		.talkwave-button--pause,
-		.loader {
-			opacity: 0;
+			border-radius: 50%;
 			transition: opacity 0.3s ease;
 		}
 	}
@@ -59,7 +55,7 @@
 		margin-left: 16px;
 
 		.episode-title {
-			font-size: 1rem;
+			font-size: 0.75rem;
 			font-weight: normal;
 
 			a {

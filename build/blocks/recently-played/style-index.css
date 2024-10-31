@@ -8,13 +8,26 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-talkwave-recently-played .recently-played-episode {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 4px 8px;
+  padding: 4px 64px 4px 8px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
-.wp-block-talkwave-recently-played .recently-played-episode:hover:hover {
+.wp-block-talkwave-recently-played .recently-played-episode .talkwave-button--play,
+.wp-block-talkwave-recently-played .recently-played-episode .talkwave-button--pause,
+.wp-block-talkwave-recently-played .recently-played-episode .loader {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.wp-block-talkwave-recently-played .recently-played-episode:hover {
   background-color: var(--wp--preset--color--mist);
 }
 .wp-block-talkwave-recently-played .recently-played-episode:hover .talkwave-button--play,
@@ -22,27 +35,13 @@
   opacity: 1;
 }
 .wp-block-talkwave-recently-played .image-wrapper {
-  position: relative;
   flex-shrink: 0;
 }
 .wp-block-talkwave-recently-played .image-wrapper img {
   display: block;
-  max-width: 64px;
+  max-width: 48px;
   height: auto;
-  border-radius: 4px;
-  transition: opacity 0.3s ease;
-}
-.wp-block-talkwave-recently-played .image-wrapper .image-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.wp-block-talkwave-recently-played .image-wrapper .talkwave-button--play,
-.wp-block-talkwave-recently-played .image-wrapper .talkwave-button--pause,
-.wp-block-talkwave-recently-played .image-wrapper .loader {
-  opacity: 0;
+  border-radius: 50%;
   transition: opacity 0.3s ease;
 }
 .wp-block-talkwave-recently-played .episode-content {
@@ -51,7 +50,7 @@
   margin-left: 16px;
 }
 .wp-block-talkwave-recently-played .episode-content .episode-title {
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: normal;
 }
 .wp-block-talkwave-recently-played .episode-content .episode-title a {
